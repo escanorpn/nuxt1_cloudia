@@ -58,7 +58,7 @@
       <div class="">
         <div style="background: linear-gradient(124deg, white 9%, white 65%, #d9d0d0  1%) center center / cover fixed;margin-bottom: 33px;">
         
-          <img src="~assets/img/bg/c.jpg" style="max-width: 120px;border-radius: 50%;float: right;box-shadow: rgb(38 3 3) 1px 5px 5px;margin-bottom: -22px;"/>
+          <img src="~assets/img/bg/c.jpg" alt="claudia" style="max-width: 120px;border-radius: 50%;float: right;box-shadow: rgb(38 3 3) 1px 5px 5px;margin-bottom: -22px;"/>
           <div text="black" class="text-center" style="margin-left: auto; margin-right: auto;     box-shadow: #225ede30 0px -20px 32px;padding-bottom: 33px;">
             <h2 style="padding-top:52px;font-weight: 600;">Hi, i’m claudia!</h2>
             

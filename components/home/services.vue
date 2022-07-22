@@ -10,7 +10,7 @@
 	background: linear-gradient(180deg, #ffffff00 9%, white 85%, #d9d0d0 1%) center center / cover fixed;">
 
 		<div class="wrap" style="max-width: 1200px;">
-			<div class="card text-center" :style="folio"  style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;background: linear-gradient(180deg, #483f3f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 81%, rgb(60 13 11) 4%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;">
+			<div class="card text-center" :style="folio"  style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;background: linear-gradient(180deg, #483f3f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 81%, rgb(60 13 11) 4%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;" >
 			<div class="card-body">
 				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
 					<b>Portfolio</b>
@@ -26,15 +26,15 @@
 <div class="card text-center" >
 
 <div class="card-body" style="margin-top:100px;    background: linear-gradient(#000000, rgba(0, 0, 0, 0.11) 100%) center center / cover fixed rgb(217, 208, 208);
-    background-color: rgb(217 208 208);">
-				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: 15px;text-shadow: 4px 2px 2px #2c0406;text-align: center;">
-					<b>Instagram</b>
-				</h2>
+    background-color: rgb(217 208 208);" v-bind:style="mBg1" >
+				<h4 style="color:white;text-shadow: 1px 1px 2px black;margin-top: 15px;text-shadow: 4px 2px 2px #2c0406;text-align: center;">
+					<b>HAVE A VISION?</b>
+				</h4>
 	
 		
 	</div>
       
-<article class="Home">
+<article class="Home" style="margin-bottom:1px;  ">
   <div class="panel-content" style="    background: linear-gradient(124deg, white 9%, white 65%, #d9d0d0 1%) center center / cover fixed;background-color:#bb975d;">
     <div class="wrap" style="">		
       <div class="">
@@ -42,7 +42,7 @@
         
           <!-- <img src="~assets/img/bg/c.jpg" style="max-width: 120px;border-radius: 50%;float: right;box-shadow: rgb(38 3 3) 1px 5px 5px;margin-bottom: -22px;"/> -->
           <div text="black" class="text-center" style="margin-left: auto; margin-right: auto;     box-shadow: #225ede30 0px -20px 32px;padding-bottom: 33px;">  
-		  <h4 style="padding-top:52px;font-weight: 600;">HAVE A VISION?</h4>
+		  <!-- <h4 style="padding-top:52px;font-weight: 600;">HAVE A VISION?</h4> -->
             <h2 style="padding-top:2px;font-weight: 600;">
 let's work together!</h2>
             
@@ -64,7 +64,13 @@ let's work together!</h2>
     </div>
   </div>
 </article>
+		<div class="card-body" style="margin-bottom:133px;    background: linear-gradient(#000000, rgba(0, 0, 0, 0.11) 100%) center center / cover fixed rgb(217, 208, 208);background-color: rgb(217 208 208);">
+				<h4 style="color:white;text-shadow: 1px 1px 2px black;margin-top: 5px;text-shadow: 4px 2px 2px #2c0406;text-align: center;">
+					<!-- <b>HAVE A VISION?</b> -->
+				</h4>
+	
 		
+	</div>
 	
 			</div>
 			
@@ -113,9 +119,21 @@ return {
 computed: {
   mBg() {
     return {
-    backgroundImage: `url(${require('~/assets/img/bg/1c.jpg')})`,
+    backgroundImage: `url(${require('~/assets/img/bg/2c.jpg')})`,
 	backgroundAttachment: "fixed",
 	height: "50vh",
+	backgroundPositionX: this.mWx,
+	backgroundPositionY: this.mWy,
+	backgroundPosition: "center",
+	backgroundRepeat: "no-repeat",	
+	backgroundSize: "cover",
+    };
+  },
+  
+  mBg1() {
+    return {
+    backgroundImage: `url(${require('~/assets/img/bg/3c.jpg')})`,
+	backgroundAttachment: "fixed",
 	backgroundPositionX: this.mWx,
 	backgroundPositionY: this.mWy,
 	backgroundPosition: "center",
