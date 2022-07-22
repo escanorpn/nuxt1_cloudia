@@ -15,7 +15,7 @@
   slide-multiple
   :gap="3"
   :arrows="false"
-  :bullets="false"
+  :bullets="true"
   :touchable="true"
  :visible-slides="3"
   :slide-ratio="1 / 4"
@@ -185,7 +185,7 @@ width: 100%; max-width: 1200px; padding: 2px;margin-top: 2px; margin-right: auto
 .wrap {
 margin-left: auto;
 margin-right: auto;
-width:90%;
+width:99%;
 max-width: 900px;
 }
  .vueperslides{

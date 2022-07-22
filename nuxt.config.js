@@ -53,6 +53,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    'mdbvue/nuxt'
     // '@nuxtjs/svg-sprite',
     
   ],

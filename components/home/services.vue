@@ -25,8 +25,7 @@
 </div>
 <div class="card text-center" >
 
-
-		<div class="card-body" style="margin-top:100px;    background: linear-gradient(#000000, rgba(0, 0, 0, 0.11) 100%) center center / cover fixed rgb(217, 208, 208);
+<div class="card-body" style="margin-top:100px;    background: linear-gradient(#000000, rgba(0, 0, 0, 0.11) 100%) center center / cover fixed rgb(217, 208, 208);
     background-color: rgb(217 208 208);">
 				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: 15px;text-shadow: 4px 2px 2px #2c0406;text-align: center;">
 					<b>Instagram</b>
@@ -34,6 +33,38 @@
 	
 		
 	</div>
+      
+<article class="Home">
+  <div class="panel-content" style="    background: linear-gradient(124deg, white 9%, white 65%, #d9d0d0 1%) center center / cover fixed;background-color:#bb975d;">
+    <div class="wrap" style="">		
+      <div class="">
+        <div style="background: linear-gradient(124deg, white 9%, white 65%, #d9d0d0  1%) center center / cover fixed;margin-bottom: 33px;">
+        
+          <!-- <img src="~assets/img/bg/c.jpg" style="max-width: 120px;border-radius: 50%;float: right;box-shadow: rgb(38 3 3) 1px 5px 5px;margin-bottom: -22px;"/> -->
+          <div text="black" class="text-center" style="margin-left: auto; margin-right: auto;     box-shadow: #225ede30 0px -20px 32px;padding-bottom: 33px;">  
+		  <h4 style="padding-top:52px;font-weight: 600;">HAVE A VISION?</h4>
+            <h2 style="padding-top:2px;font-weight: 600;">
+let's work together!</h2>
+            
+            <div style="padding-left:22px;padding-right:22px;margin-bottom:22px">
+            </div>
+
+            <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 90%; max-width: 700px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;background-color: transparent!important;">
+              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
+                <div style="margin-top: 52px;color: #010509a1;">I’m the recipe developer, photographer and stylist of Spice & Heat. I love working with brands, companies and individuals to capture beautiful content. Fill in the form below and let’s work together! </div>
+                  <!-- <a role="button" class="btn-floating btn t btn-sm Ripple-parent waves-effect waves-light" style="padding: 8px; border-radius: 12px;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);">Contact us<div class="Ripple " style="top: 0px; left: 0px; width: 0px; height: 0px;">
+                  </div>
+                  </a> -->
+                     <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top:22px" color="" type="submit">Count me In!</mdb-btn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+		
 	
 			</div>
 			
