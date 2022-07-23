@@ -21,6 +21,7 @@
       <mdb-navbar-nav right>  
        
         <mdb-nav-item  class="nav_text"  to="/about">  <mdb-icon fab icon="facebook-f" /> </mdb-nav-item>
+        <mdb-nav-item  class="nav_text"  to="/about">  <mdb-icon fab icon="instagram" /> </mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/about">  <mdb-icon fab icon="twitter" /> </mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/about">  <mdb-icon fab icon="pinterest-p" /></mdb-nav-item>
       </mdb-navbar-nav>
