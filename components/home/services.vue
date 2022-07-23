@@ -160,7 +160,7 @@ methods:{
         async fetchImages(){
         this.products=[];
           console.log("Fetching Images: ")
-        await this.$api.$get('company').then((response) => {
+        await this.$api.$get('company_limited').then((response) => {
         console.log("response: "+ JSON.stringify(response));
         const myData = response.data
         if(response.val==2){

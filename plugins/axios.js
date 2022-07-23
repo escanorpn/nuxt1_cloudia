@@ -1,6 +1,6 @@
 export default function ({ $axios, redirect }, inject) {
     const api = $axios.create()
-    api.setBaseURL('http://localhost/w/vue/src/s/s2/public/api/')
+    api.setBaseURL('http://localhost/w/vue1/src/s/s2/public/api/')
     // $api.onRequest(config => {
     //   console.log('Making request to ' + config.url)
     // })

@@ -242,12 +242,33 @@ export default {
     },
     async fetchFolio() {
 
+              await this.$api.$get('product').then((response) => {
+        console.log("response: "+ JSON.stringify(response));
+        const myData = response.data
+      if(response.val==2){
+          console.log("products1"+JSON.stringify(myData))
+          // alert("data")
+            this.products = myData.map(post => ({
+            id: post.id,
+            name: post.name,
+            description: post.description, 
+            img: post.images,
+          
+          }))
+      }
+          console.log("products"+JSON.stringify(myData))
+     
+  }).catch(function (response) {
+            //handle error
+            console.log("error: "+response)
+        });
+
         this.sending=true;
         var murl=this.$store.state.mUrl;
        const mData = { 
           nm:"peter" ,
             // pass:this.pass
-        };
+        };  
     
       axios({
           method: 'POST',
@@ -290,20 +311,29 @@ export default {
     },
   },
   mounted() {
-    if(this.name!="" && this.name!=undefined){
-      console.log("url ok="+this.name)
-      this.mSearchitem(this.name);
-    }else{
+    // if(this.name!="" && this.name!=undefined){
+    //   console.log("url ok="+this.name)
+    //   this.mSearchitem(this.name);
+    // }else{
       
-    this.fetchFolio()
+    // this.fetchFolio()
+    //   console.log("url not ok")
+    // }
+     this.fetchFolio()
       console.log("url not ok")
-    }
   },
 
 }
 </script>
 <style scoped>
-
+  .md-progress-bar {
+    position: fixed;
+    height:7px;
+    top: 48px;
+    right: 0;
+    left: 0;
+    z-index: 3;
+  }
 .btn-default {
   margin-left: 41%;
   margin-right:45%;

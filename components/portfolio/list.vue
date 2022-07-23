@@ -26,6 +26,9 @@ export default {
   components: {
     item,
   },
+  mounted(){
+    // alert("list:"+JSON.stringify(this.posts))
+  }
 }
 </script>
 

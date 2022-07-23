@@ -112,13 +112,13 @@
         async fetchSomething(){
         this.products=[];
           // console.log("resprequestingonse: ")
-        await this.$api.$get('company').then((response) => {
+        await this.$api.$get('company_limited').then((response) => {
         console.log("response: "+ JSON.stringify(response));
         const myData = response.data
         if(myData.val==2){
             console.log(myData)
           }
-          console.log("products"+JSON.stringify(myData))
+          console.log("Gallery"+JSON.stringify(myData))
      
   }).catch(function (response) {
             //handle error
