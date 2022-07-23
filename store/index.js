@@ -1,3 +1,5 @@
+
+  const base="https://sclaudia.losenviskas.com/";
 export const state = () => ({
   counter: 0,
   docs: true,
@@ -10,10 +12,10 @@ export const state = () => ({
   button_bg: "linear-gradient(315deg,#3f0d12,#a71d31 74%)",
   button_sh: "rgb(38 3 3) 1px 5px 5px",
   hmName:"Cloudia",
-
-  mUrl: " http://localhost/w/vue1/src/s/s2/public/api/auth/",
-  iUrl: " http://localhost/w/vue1/src/s/s2/storage/app/",
-  nUrl: " http://localhost/w/vue1/src/s/s2/public/api/",
+  // base:"https://sclaudia.losenviskas.com/",
+  mUrl: base+" src/s/s2/public/api/auth/",
+  iUrl: base+" src/s/s2/storage/app/",
+  nUrl: base+" src/s/s2/public/api/",
 })
 
 export const getters = {
