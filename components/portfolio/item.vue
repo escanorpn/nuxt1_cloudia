@@ -1,10 +1,10 @@
 <template>
-<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-5 col-md-6" data-v-320224c2="" v-if="post.name">
+<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-4 col-md-4" data-v-320224c2="" v-if="post.name">
 
 
      <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}" wide>
 		<mdb-view hover cascade class="ms">
-        <a-carousel effect="slide" arrows  >
+        <a-carousel effect="slide" arrows autoplay  >
     <div
       slot="prevArrow"
       class="custom-slick-arrow"
@@ -17,7 +17,10 @@
     </div>
   
     <div  v-for="(item,index) in sm1" :key="index"  >
-      <img  :src="murl+item.url" alt="Card image cap" class="ms1"/>
+   
+      <!-- <img  :src="murl+item.url" alt="Card image cap" class="ms1"/> -->
+              <div class="bgImg" :style="{backgroundImage:`url(${murl+item.url})`}"></div>
+
 				<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
     </div>
   </a-carousel>
@@ -203,6 +206,13 @@ mdbModal,
 <style scoped>
 .card{
   width: 100%;
+}
+.bgImg{
+  height:40vh;
+  width:100%;
+  background-size:cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 .ms{
       box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);

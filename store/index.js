@@ -13,9 +13,15 @@ export const state = () => ({
   button_sh: "rgb(38 3 3) 1px 5px 5px",
   hmName:"Cloudia",
   // base:"https://sclaudia.losenviskas.com/",
+
   mUrl: base+"src/s/s2/public/api/auth/",
   iUrl: base+"src/s/s2/storage/app/",
   nUrl: base+"src/s/s2/public/api/",
+
+  
+  // mUrl: " http://localhost/w/vue1/src/s/s2/public/api/auth/",
+  // iUrl: " http://localhost/w/vue1/src/s/s2/storage/app/",
+  // nUrl: " http://localhost/w/vue1/src/s/s2/public/api/",
 })
 
 export const getters = {
