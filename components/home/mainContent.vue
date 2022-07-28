@@ -14,7 +14,7 @@
             <!-- <h1 class="text-white pt-3 mt-n5" >15Minutes Logistics</h1> -->
 
              <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;font-size: 2p;color: #ffffff;
-    text-shadow: #cb6dff 1px 1px 2px;;" >{{heading}}</h1>
+    text-shadow: #cb6dff 1px 1px 2px;" >{{heading}}</h1>
      
             <!-- <p class="lead text-white mt-3" style="font-weight: 700;">Global Exhibitions </p> -->
 

@@ -4,19 +4,26 @@
        <md-progress-bar md-mode="indeterminate" v-if="sending" />
        <mdb-edge-header color="" style="background-color: #3c0d0b ">
         <div class="home-page-background"></div>
+           <div class="container">
+           
+        <div class="row">
+          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;">
+          <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Portfolio</h1>
+        </div>
+        </div>
+           </div>
+         
       </mdb-edge-header>
            
-    <mdb-container class="free-bird">
+    <!-- <mdb-container class="free-bird">
         <mdb-row>
           <mdb-col md="10" class="mx-auto white z-depth-1 py-2 px-2" >
             
           <h3  style="text-align: center;"><strong>Explore</strong></h3>
           <a-affix :offset-top="top"  >
-            <!-- <div style="" class="mDiv">
-              <mdb-input label="Search" v-model="value"  />
-            </div> -->
+     
             <input class="form-control search_input dProperty mDiv" id="search" style="float:;border-radius: 50px 50px;max-width: 400px;text-align:left;margin-left: auto;margin-right: auto;padding-left:32px;cursor:text; box-shadow:12px 12px 12px black;box-shadow: 1px 6px 14px 6px #09131596;margin-bottom:33px" type="search" placeholder="Search" aria-label="Search"  v-on:keyup="keymonitor"/>
-                <!-- {{mItems}} -->
+           
            
 
   <mdb-list-group v-if="dList">
@@ -38,32 +45,21 @@
     </div>
   </mdb-list-group>
 
-    <!-- <mylist :posts="mItems" /> -->
           </a-affix>
 <div style="margin-left:auto;margin-right:auto;">
           <mdb-btn   @click="reload" >Refresh</mdb-btn>
 </div>
-        <!-- <a-affix :offset-top="top1" :style="{left: 200}">
-           <div style="" class="mDiv">
-          <a-layout-sider 
-            breakpoint="lg"
-            collapsed-width="0"
-            @collapse="onCollapse"
-            @breakpoint="onBreakpoint"
-          >
-         
-            <div class="mDiv logo" />
-            <mdb-input label="Search" v-model="value"  />
-       
-          </a-layout-sider>
-             </div>
-        </a-affix> -->
+  
           </mdb-col>
         </mdb-row>
-      </mdb-container>
-  
-     </div>
+      </mdb-container> -->
+      <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -157px;">
+              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
+
     <mlist :posts="products" :key="list_key" />
+      </div>
+      </div>
+     </div>
    
   </Layout>
 </template>

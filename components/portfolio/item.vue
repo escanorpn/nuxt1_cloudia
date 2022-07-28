@@ -52,7 +52,7 @@
              <mdb-btn color="primary" rounded >Call</mdb-btn>
         </a>
        <mdb-btn  color="primary" rounded style="float:" @click="showDrawer">Buy</mdb-btn> -->
-      <mdb-btn style="color:#e9ecef;background-color: #ff3547;" color="" type="submit">Read the post</mdb-btn>
+      <!-- <mdb-btn style="color:#e9ecef;background-color: #ff3547;" color="" type="submit">Read the post</mdb-btn> -->
        </div>
 	</mdb-card>
 
