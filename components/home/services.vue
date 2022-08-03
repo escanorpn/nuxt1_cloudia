@@ -74,14 +74,7 @@ let's work together!</h2>
 	
 			</div>
 			
-			<mlist :posts="products" />
-			  <a-carousel autoplay>
-              <!-- <item1 v-for="(post, index) in posts" :key="index" :post="post" /> -->
-    <!-- <div><h3>1</h3></div>
-    <div><h3>2</h3></div>
-    <div><h3>3</h3></div>
-    <div><h3>4</h3></div> -->
-  </a-carousel>
+			<mlist :posts="igItems" />
 	
 </div>
 
@@ -105,6 +98,7 @@ components: {
 data() {
 return {
 	products: [],
+	igItems: [],
 	mItems: [],
 	sending: false,
 	dList:false,
@@ -175,8 +169,38 @@ methods:{
         });
        
   },
+  
+        async fetchIgmages(){
+        this.products=[];
+          console.log("Fetching Igmages: ")
+        await this.$ig.$get().then((response) => {
+        console.log("Igmages response: "+ JSON.stringify(response));
+        let myData = response.data
+		
+		// let item=[]
+		for (var i = myData.length - 1; i >= 0; i--) {
+    
+			if (myData[i].media_type !="IMAGE") { 
+			myData.splice(i, 1);
+			}
+		}
+		if(myData.length>15){
+		myData = myData.slice(0, 12);
+		}
+        console.log(myData)
+		this.igItems = myData
+          
+        //   console.log("products:  "+JSON.stringify(this.products))
+     
+  }).catch(function (response) {
+            //handle error
+            console.log("error: "+response)
+        });
+       
+  },
 },
 mounted() {
+ this.fetchIgmages();
  this.fetchImages();
 },
 

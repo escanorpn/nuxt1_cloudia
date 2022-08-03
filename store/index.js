@@ -1,5 +1,6 @@
 
-  const base="https://sclaudia.losenviskas.com/";
+import {iBase} from "./const"
+const base1=iBase;
 export const state = () => ({
   counter: 0,
   docs: true,
@@ -14,9 +15,9 @@ export const state = () => ({
   hmName:"Cloudia",
   // base:"https://sclaudia.losenviskas.com/",
 
-  mUrl: base+"src/s/s2/public/api/auth/",
-  iUrl: base+"src/s/s2/storage/app/",
-  nUrl: base+"src/s/s2/public/api/",
+  mUrl: base1+"src/s/s2/public/api/auth/",
+  iUrl: base1+"src/s/s2/storage/app/",
+  nUrl: base1+"src/s/s2/public/api/",
 
   
   // mUrl: " http://localhost/w/vue1/src/s/s2/public/api/auth/",

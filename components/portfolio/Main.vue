@@ -72,6 +72,7 @@ import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroup
 // import data from "./posts.json"
 
 export default {
+  name: 'Portfolio',
   components: {
     // Layout,
     // NewsFilter,

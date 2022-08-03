@@ -21,10 +21,11 @@
   :slide-ratio="1 / 4"
   :dragging-distance="70">
   <!-- <vueper-slide v-for="i in 10" :key="i" :title="i.toString()" /> -->
+   <!-- image="murl+slide.url" -->
  <vueper-slide
     v-for="(slide,i ) in posts" 
     :key="i"
-    :image="murl+slide.url"
+    :image="slide.media_url"
   
     />
 </vueper-slides>

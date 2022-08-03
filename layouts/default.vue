@@ -12,7 +12,7 @@
       <mdb-navbar-nav style="background: #0700007a;">  
         <mdb-nav-item  class="nav_text"  to="/" active>Home</mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/Portfolio">Portfolio</mdb-nav-item>
-        <mdb-nav-item class="nav_text"   to="/about">Services</mdb-nav-item>
+        <mdb-nav-item class="nav_text"   to="/Services">Services</mdb-nav-item>
         <mdb-nav-item class="nav_text"  to="/about">Shop</mdb-nav-item>
         <!-- <mdb-nav-item  class="nav_text"  to="/about">Contact us</mdb-nav-item> -->
         <!-- <mdb-nav-item  class="nav_text"   to="/admin">Admin</mdb-nav-item> -->

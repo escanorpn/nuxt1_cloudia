@@ -25,7 +25,7 @@ export default {
 // import Main from "./home/mainContent.vue"
 // import Services from "./home/services.vue"
 export default {
-  name: 'IndexPage',
+  name: 'Portfolio',
     head: {
     title: 'Home page',
     meta: [
