@@ -1,8 +1,8 @@
 <template>
-<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-4 col-md-4" data-v-320224c2="" v-if="post.name">
+<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-4 col-md-4" data-v-320224c2="" v-if="post.name" v-on:click="g2p">
 
 
-     <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}" wide>
+     <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}" wide >
 		<mdb-view hover cascade class="ms">
         <a-carousel effect="slide" arrows autoplay  >
     <div
@@ -43,7 +43,7 @@
    <h5 style="text-align: center;color:#000000d9">{{post.name }}</h5>   
 <!-- <p style="text-align: center;"><b>Price: </b> {{post.price }}</p> -->
         <!-- <h4><b>Description</b></h4> -->
-        <p v-if="post.description!='null'">{{post.description}}</p>
+        <!-- <p v-if="post.description!='null'">{{post.description}}</p> -->
 		</mdb-card-body>
     
        <div  style="margin-left: auto;margin-right: auto;">
@@ -108,26 +108,7 @@ mdbModal,
     isBold: false,
      murl:this.$store.state.iUrl,
      sm1:[],
-    someList:[
-          {
-            html: "https://mdbootstrap.com/img/Photos/Others/photo6.jpg",
-            style: {
-              'background': '#1bbc9b'
-            }
-          },
-          {
-            html: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%286%29.jpg',
-            style: {
-              'background': '#4bbfc3'
-            }
-          },
-          {
-            html: '../../files',
-            style: {
-              'background': '#7baabe'
-            }
-          }
-        ],
+     
         //Slider configuration [obj]
         options: {
           currentPage: 0,
@@ -145,55 +126,19 @@ mdbModal,
   }
 },
   methods: {
+    g2p(){
+      // this.$router.push('/Pitem');
+      this.$store.commit('pdata',this.post)
+       this.$router.push({ path: '/Pitem', })
+      // alert("foo")
+    },
     showDrawer() {
       this.visible = true;
     },
     onClose() {
       this.visible = false;
     },
-    add2cart(){
-      var mCarray=[];
-      if(this.$cookies.isKey("mp")){
-          // mp=this.$cookies.get("mp");
-          
-           mCarray=JSON.parse(this.$cookies.get("mp"))
-          if(mCarray.length>1){
-
-          mCarray.forEach(element => {
-            if(mCarray.includes(this.post.id)){
-              console.log(element+"exist")
-            this.sMsg="Added" ;
-              this.userSaved=true;
-            }else{
-              mCarray.push(this.post.id);
-              // this.userSaved=true;
-            }
-            // mCarray.indexOf(this.post.id) === -1 ? mCarray.push(this.post.id) : this.userSaved=true;
-
-          //  mp.push(element);
-          });
-            }else{
-                console.log("ff");
-                
-         mCarray.push(this.post.id);
-              // this.userSaved=true;
-            }
-         
-      }else{
-        
-        console.log(this.post.id)
-         mCarray.push(this.post.id);
-              // this.userSaved=true;
-      }
     
-      // mp.push(this.post.id);
-      var mp1= JSON.stringify(mCarray);
-      console.log(mp1);
-      this.$cookies.set("mp",mp1,"22min");
-      this.visible = false;
-      this.$parent.add2cart();
-
-    },
 
   },
   mounted() {

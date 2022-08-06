@@ -12,7 +12,7 @@ export default {
    
     <!-- <Tutorial/> -->
     <div>
-      <portfolioMain  />
+       <portfolioMain  />
        <!-- <homeServices  /> -->
     </div>
     

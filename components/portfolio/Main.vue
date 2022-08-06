@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div style="margin-top: -15px; overflow-x: ;">
-       <md-progress-bar md-mode="indeterminate" v-if="sending" />
+       <mdb-progress-bar md-mode="indeterminate" v-if="sending" />
        <mdb-edge-header color="" style="background-color: #3c0d0b ">
         <div class="home-page-background"></div>
            <div class="container">
@@ -68,11 +68,11 @@
 import mlist from "./list.vue"
 // import mylist from "./mList.vue"
 import axios from "axios"
-import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn } from 'mdbvue';
+import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn,mdbProgressBar } from 'mdbvue';
 // import data from "./posts.json"
 
 export default {
-  name: 'Portfolio',
+  name: 'Portfolio_main',
   components: {
     // Layout,
     // NewsFilter,
@@ -84,12 +84,13 @@ export default {
     mdbCol,
     mdbRow,
     mdbEdgeHeader,
+    mdbProgressBar,
     // mdbIcon,
     mdbBtn,
     // mdbInput,
     // mdbCardBody
   },
-  props: ['name',],
+  // props: ['name',],
 
 
   data() {
@@ -317,7 +318,7 @@ export default {
     //   console.log("url not ok")
     // }
      this.fetchFolio()
-      console.log("url not ok")
+      console.log("loading folio")
   },
 
 }

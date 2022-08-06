@@ -18,7 +18,7 @@ export const state = () => ({
   mUrl: base1+"src/s/s2/public/api/auth/",
   iUrl: base1+"src/s/s2/storage/app/",
   nUrl: base1+"src/s/s2/public/api/",
-
+  pitem:"not present",
   
   // mUrl: " http://localhost/w/vue1/src/s/s2/public/api/auth/",
   // iUrl: " http://localhost/w/vue1/src/s/s2/storage/app/",
@@ -34,6 +34,9 @@ export const getters = {
 export const mutations = {
   increment(state) {
     state.counter++
+  },
+  pdata(state, pitem) {
+    state.pitem = pitem;
   }
 }
 

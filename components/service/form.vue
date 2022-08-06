@@ -36,7 +36,7 @@
         label-for="input-4"
       >
     
-        <VuePhoneNumberInput :default-country-code="KE" required v-model="form.phone" />
+        <VuePhoneNumberInput default-country-code="KE" required v-model="form.phone" />
       </b-form-group>
 
       <b-form-group id="input-group-3" label="Custom service:" label-for="input-3">
