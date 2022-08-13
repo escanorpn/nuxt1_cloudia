@@ -7,7 +7,7 @@
            <div class="container">
            
         <div class="row">
-          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;">
+          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;left: 0;width:100%;">
           <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Services</h1>
         </div>
         </div>

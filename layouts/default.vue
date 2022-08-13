@@ -11,6 +11,7 @@
     <mdb-navbar-toggler>
       <mdb-navbar-nav style="background: #0700007a;">  
         <mdb-nav-item  class="nav_text"  to="/" active>Home</mdb-nav-item>
+        <mdb-nav-item class="nav_text"  to="/recipes">Recipes</mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/Portfolio">Portfolio</mdb-nav-item>
         <mdb-nav-item class="nav_text"   to="/Services">Services</mdb-nav-item>
         <mdb-nav-item class="nav_text"  to="/about">Shop</mdb-nav-item>

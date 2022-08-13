@@ -1,13 +1,15 @@
 <template>
   <Layout>
     <div style="margin-top: -15px; overflow-x: ;">
-       <mdb-progress-bar md-mode="indeterminate" v-if="sending" />
+       <!-- <md-progress-bar md-mode="indeterminate" v-if="sending1" /> -->
        <mdb-edge-header color="" style="background-color: #3c0d0b ">
         <div class="home-page-background"></div>
            <div class="container">
-           
+              <div class="loading-box" v-if="loading">
+                <div class="loader"></div>
+              </div>
         <div class="row">
-          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;">
+          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;left: 0;width:100%;">
           <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Portfolio</h1>
         </div>
         </div>
@@ -100,6 +102,7 @@ export default {
       products: [],
       mItems: [],
       sending: false,
+      loading: false,
       dList:false,
       cRequest:false,
       list_key:0,
@@ -239,8 +242,10 @@ export default {
       console.log(broken);
     },
     async fetchFolio() {
-
+      const context=this;
+  this.loading=true;
               await this.$api.$get('product').then((response) => {
+                  this.loading=false;
         console.log("response: "+ JSON.stringify(response));
         const myData = response.data
       if(response.val==2){
@@ -257,55 +262,10 @@ export default {
           console.log("products"+JSON.stringify(myData))
      
   }).catch(function (response) {
+      context.loading=false;
             //handle error
             console.log("error: "+response)
         });
-
-        this.sending=true;
-        var murl=this.$store.state.mUrl;
-       const mData = { 
-          nm:"peter" ,
-            // pass:this.pass
-        };  
-    
-      axios({
-          method: 'POST',
-          // url: 'http://localhost/nw/vap/regApi.php?apicall=signup'
-          url: murl+'api.php?apicall=a_moto',
-          data: mData,
-          config: { headers: {'Content-Type': 'multipart/form-data' }}
-      })
-      .then((response) => {
-         const results = response.data
-         const myData = response.data.data
-        console.log("response: "+JSON.stringify(response));
-        console.log("response1: "+ JSON.stringify(myData));
-        
-        if(results.val==2){
-          console.log(myData)
-            this.products = myData.map(post => ({
-            
-          id: post.pro.pid,
-          name: post.pro.name,
-          images: post.pro.img,
-          description: post.pro.description,
-          type: post.pro.type,
-          price: post.pro.price,
-          im: post.im
-          // created_at: post.name,
-          // updated_at: post.name
-         
-        }))
-        }
-       this.sending=false;
-
-      })
-      .catch(function (response) {
-        this.sending=false;
-          //handle error
-          console.log("error"+response)
-      });
-
     },
   },
   mounted() {
@@ -324,14 +284,37 @@ export default {
 }
 </script>
 <style scoped>
-  .md-progress-bar {
-    position: fixed;
-    height:7px;
-    top: 48px;
-    right: 0;
+.loading-box{
+     position: fixed;
+    width: 100%;
+    height: 5px;
+    border-radius: 50px;
+    /* border: 2px solid #ededed; */
+    overflow: hidden;
+    top: 38px;
     left: 0;
-    z-index: 3;
-  }
+}
+.loader{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #b6b5ff, #ff9797);
+    left: 0%;
+}
+.loader{
+    left: -100%;
+    animation: load 3s linear infinite;
+}
+
+@keyframes load{
+    0%{
+        left: -100%;
+    }
+    100%{
+        left: 100%;
+    }
+}
 .btn-default {
   margin-left: 41%;
   margin-right:45%;
