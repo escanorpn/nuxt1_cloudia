@@ -5,7 +5,9 @@
        <mdb-edge-header color="" style="background-color: #3c0d0b ">
         <div class="home-page-background"></div>
            <div class="container">
-           
+              <div class="loading-box" v-if="loading">
+                <div class="loader"></div>
+              </div>
         <div class="row">
           <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;left: 0;width:100%;">
           <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Services</h1>
@@ -106,6 +108,7 @@ export default {
       dList:false,
       cRequest:false,
       list_key:0,
+      loading:false
     }
   },
   methods: {
@@ -242,8 +245,9 @@ export default {
       console.log(broken);
     },
     async fetch() {
-
+this.loading=true
               await this.$api.$get('service').then((response) => {
+                this.loading=false
         console.log("response: "+ JSON.stringify(response));
         const myData = response.data
       if(response.val==2){
@@ -263,13 +267,8 @@ export default {
             //handle error
             console.log("error: "+response)
         });
-
-        this.sending=true;
-        var murl=this.$store.state.mUrl;
-       const mData = { 
-          nm:"peter" ,
-            // pass:this.pass
-        };  
+        this.loading=false
+       
     
 
     },
@@ -290,47 +289,34 @@ export default {
 }
 </script>
 <style scoped>
-  .md-progress-bar {
-    position: fixed;
-    height:7px;
-    top: 48px;
-    right: 0;
+
+.loading-box{
+     position: fixed;
+    width: 100%;
+    height: 5px;
+    border-radius: 50px;
+    /* border: 2px solid #ededed; */
+    overflow: hidden;
+    top: 38px;
     left: 0;
-    z-index: 3;
-  }
-.btn-default {
-  margin-left: 41%;
-  margin-right:45%;
- color:#e9ecef;
- background-color:#0c0f24 !important
 }
- .mDiv{
-    background-color: #fff;
-   padding-top: 3px;
-    padding-left: 3px;
- }
-.md-form {
-  
-    /* border-radius: 30px; */
-    background-color: #fff;
-
+.loader{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #3c0d0b,#b6b5ff, #ff9797,#3c0d0b);
+    left: 0%;
+    animation: load 1s linear infinite;
 }
-.ant-affix{
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%) ;
-}
-@keyframes rotate {
 
-from {transform: rotate(0deg)}
-to {transform: rotate(360deg)}
 
-}
-.refresh-start {
-
-animation-name: rotate;
-animation-duration: 1s;
-animation-iteration-count: infinite;
-animation-timing-function: linear;
-animation-play-state: running;
-
+@keyframes load{
+    0%{
+        left: -100%;
+    }
+    100%{
+        left: 100%;
+    }
 }
 </style>

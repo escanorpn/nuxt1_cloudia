@@ -1,33 +1,29 @@
 <template>
   <Layout>
     <div style="margin-top: -15px; overflow-x: ;">
-       <!-- <md-progress-bar md-mode="indeterminate" v-if="sending1" /> -->
+       <mdb-progress-bar md-mode="indeterminate" v-if="sending" />
        <mdb-edge-header color="" style="background-color: #3c0d0b ">
         <div class="home-page-background"></div>
            <div class="container">
-              <div class="loading-box" v-if="loading">
-                <div class="loader"></div>
-              </div>
+           
         <div class="row">
-          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;left: 0;width:100%;">
-          <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Recipes</h1>
+          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;">
+          <!-- <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Portfolio</h1> -->
         </div>
         </div>
            </div>
-         
       </mdb-edge-header>
-
       <div style="margin-bottom: 222px;margin-top: -157px;">
           <a-affix :offset-top="top"  >
      
             <input class="form-control search_input dProperty mDiv" id="search" style="float:;border-radius: 50px 50px;max-width: 400px;text-align:left;margin-left: auto;margin-right: auto;padding-left:32px;cursor:text; box-shadow:12px 12px 12px black;box-shadow: 1px 6px 14px 6px #09131596;margin-bottom:33px" type="search" placeholder="Search" aria-label="Search"  v-on:keyup="keymonitor"/>
-
+           
                 <mdb-list-group v-if="dList">
                   <div style="margin-top: -22px;box-shadow: rgb(9 19 21 / 59%) 1px 6px 14px 6px;max-width: 410px;
                   margin-left: auto;
                   margin-right: auto;
                   width: 80%;">
-                  <mdb-list-group-item  :action="true"  v-for="(item,index) in mItems" :key="index"   >
+                  <mdb-list-group-item  :action="true"  v-for="(item,index) in mItemsList" :key="index"   >
                   <div @click="g2r(item)">{{item.name}}</div >
                   </mdb-list-group-item>
                   </div>
@@ -44,42 +40,25 @@
 
             </a-affix>
         </div>
+
+      	<div class="wrap" style="max-width: 1200px;">
+			<div class="card text-center" :style="folio"  style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;background: linear-gradient(180deg, #483f3f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 81%, rgb(60 13 11) 4%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;" >
+			<div class="card-body">
+				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
+					<b>{{products.name }}</b>
+				</h2>
+	
+		  <!-- <mlist :posts="products" :key="list_key" /> -->
+		  <folio :posts="mItems" :key="list_key" />
+		<!-- <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top: -22px;" color="" type="submit">View the
+		 Portfolio</mdb-btn> -->
+			<p style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
+					<b>{{products.description }}</b>
+				</p>
+	</div>
+</div>
+</div>
     
-  <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -174px;    background: #3b3b3b">
-    <a-affix :offset-top="top" class="mTop" style="background: #110303;" >
-    <a-layout-sider 
-      breakpoint="lg"
-      collapsed-width="0"
-      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
-    font-weight: 600 !important;margin-top:22px;"
-    >
-   <p style="margin-left:12px"><u>Recommendations</u></p>
-
-      <ul v-for="(item,index) in products" :key="index" >
-        <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
-       
-      </ul>
-    </a-layout-sider>
-    </a-affix>
-    <a-layout class="mTop" >
-      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
-      <a-layout-content :style="{ margin: '54px 16px 0' }">
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-
-          <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -75px;">
-              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
-
-    <mlist :posts="products" :key="list_key" />
-      </div>
-      </div>
-        </div>
-      </a-layout-content>
-      <!-- <a-layout-footer style="textAlign: center">
-        Ant Design ©2018 Created by Ant UED
-      </a-layout-footer> -->
-    </a-layout>
-  </a-layout>
-      
       <!-- <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -157px;">
               <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
 
@@ -92,14 +71,13 @@
 </template>
 
 <script>
+import folio from "../home/folio.vue"
 import mlist from "./list.vue"
-// import mylist from "./mList.vue"
-import axios from "axios"
 import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn,mdbProgressBar } from 'mdbvue';
 // import data from "./posts.json"
 
 export default {
-  name: 'Recipe_main',
+  name: 'pItem',
   components: {
     // Layout,
     // NewsFilter,
@@ -114,6 +92,7 @@ export default {
     mdbProgressBar,
     // mdbIcon,
     mdbBtn,
+    folio
     // mdbInput,
     // mdbCardBody
   },
@@ -125,49 +104,32 @@ export default {
        top:50,
        top1:50,
       products: [],
+      mItemsList: [],
       mItems: [],
-      sending: false,
       loading: false,
-      loading1: true,
+      sending: false,
       dList:false,
       cRequest:false,
       list_key:0,
     }
   },
   methods: {
-      reload(){
-      console.log("reloading...");
-      // this.list_key=this.list_key+1;
-       this.refresh();
-       this.fetchFolio();
-    },
-    refresh(){
-      console.log("refreshing...");
-      this.list_key=this.list_key+1;
-    },
-
-     keymonitor(event) {
+         keymonitor(event) {
      
         console.log(event.target.value);
         if(event.target.value!= ""){
         this.mSearch(event.target.value);
         
         }else{
-           this.mItems=[]; 
+           this.mItemsList=[]; 
            this.dList=false;
         }
     },
-    
-   // Helper function for extracting a nested image object
-   onCollapse(collapsed, type) {
-      console.log(collapsed, type);
-    },
-    onBreakpoint(broken) {
-      console.log(broken);
-    },
-    
       g2r(d){
       // this.$router.push('/Pitem');
+      
+    this.mItems=d.images
+    this.products=d
       this.$store.commit('pdata',d)
        this.$router.push({ path: '/Ritem', })
       // alert("foo")
@@ -187,13 +149,9 @@ export default {
       if(response.val==2){
           this.cRequest=false;
           console.log(myData)
-           this.mItems = myData
+           this.mItemsList = myData
            
            this.dList=true;
-        }else if(results.val==0){
-           
-           this.dList=false;
-           this.cRequest=true;
         }
 
           console.log("products"+JSON.stringify(myData))
@@ -204,79 +162,25 @@ export default {
             console.log("error: "+response)
         });
     },
-    async fetchFolio() {
-      const context=this;
-  this.loading=true;
-              await this.$api.$get('recipe').then((response) => {
-                  this.loading=false;
-        console.log("response: "+ JSON.stringify(response));
-        const myData = response.data
-      if(response.val==2){
-          console.log("products1"+JSON.stringify(myData))
-          // alert("data")
-            this.products = myData.map(post => ({
-            id: post.id,
-            name: post.name,
-            description: post.description, 
-            images: post.images,
-          
-          }))
-      }
-          console.log("products"+JSON.stringify(myData))
-     
-  }).catch(function (response) {
-      context.loading=false;
-            //handle error
-            console.log("error: "+response)
-        });
-    },
   },
   mounted() {
-    // if(this.name!="" && this.name!=undefined){
-    //   console.log("url ok="+this.name)
-    //   this.mSearchitem(this.name);
-    // }else{
-      
-    // this.fetchFolio()
-    //   console.log("url not ok")
-    // }
-     this.fetchFolio()
-      console.log("loading folio")
+   
+    this.mItems=this.$store.state.pitem.images
+    this.products=this.$store.state.pitem
+    // console.log('Data: ' +JSON.stringify(this.$store.state.pitem));
   },
 
 }
 </script>
 <style scoped>
-.loading-box{
-     position: fixed;
-    width: 100%;
-    height: 5px;
-    border-radius: 50px;
-    /* border: 2px solid #ededed; */
-    overflow: hidden;
-    top: 38px;
+  .md-progress-bar {
+    position: fixed;
+    height:7px;
+    top: 48px;
+    right: 0;
     left: 0;
-}
-.loader{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #3c0d0b,#b6b5ff, #ff9797,#3c0d0b);
-    left: 0%;
-    animation: load 1s linear infinite;
-}
-
-
-@keyframes load{
-    0%{
-        left: -100%;
-    }
-    100%{
-        left: 100%;
-    }
-}
-
+    z-index: 3;
+  }
 .btn-default {
   margin-left: 41%;
   margin-right:45%;

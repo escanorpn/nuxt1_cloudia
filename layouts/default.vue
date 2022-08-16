@@ -14,8 +14,8 @@
         <mdb-nav-item class="nav_text"  to="/recipes">Recipes</mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/Portfolio">Portfolio</mdb-nav-item>
         <mdb-nav-item class="nav_text"   to="/Services">Services</mdb-nav-item>
+        <mdb-nav-item  class="nav_text"  to="/about">About</mdb-nav-item>
         <mdb-nav-item class="nav_text"  to="/about">Shop</mdb-nav-item>
-        <!-- <mdb-nav-item  class="nav_text"  to="/about">Contact us</mdb-nav-item> -->
         <!-- <mdb-nav-item  class="nav_text"   to="/admin">Admin</mdb-nav-item> -->
         
       </mdb-navbar-nav>

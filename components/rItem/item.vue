@@ -1,21 +1,10 @@
 <template>
-<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-4 col-md-4" data-v-320224c2="" v-if="post.name" v-on:click="g2p">
+<div class="mb-4 col-md-4"  v-if="post.name" >
 
 
      <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}" wide >
 		<mdb-view hover cascade class="ms">
-        <a-carousel effect="slide" arrows autoplay  >
-    <div
-      slot="prevArrow"
-      class="custom-slick-arrow"
-      style="left: 10px;zIndex: 1"
-    >
-      <a-icon type="left-circle" />
-    </div>
-    <div slot="nextArrow"  class="custom-slick-arrow" style="right: 10px">
-      <a-icon type="right-circle" />
-    </div>
-  
+
     <div  v-for="(item,index) in sm1" :key="index"  >
    
       <!-- <img  :src="murl+item.url" alt="Card image cap" class="ms1"/> -->
@@ -23,19 +12,6 @@
 
 				<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
     </div>
-  </a-carousel>
-			<!-- <slider ref="slider" :options="options">
-         
-          <slideritem v-for="(item,index) in someList" :key="index" > 
-         <div>
-      <mdb-card-image  :src="item.html" alt="Card image cap" ></mdb-card-image>
-				<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
-    </div>
-            </slideritem>
-          
-          <div slot="loading">loading...</div>
-      </slider> -->
-       
        
 		</mdb-view>
 		<mdb-card-body class="text-center pb-0" cascade>
@@ -43,16 +19,11 @@
    <h5 style="text-align: center;color:#000000d9">{{post.name }}</h5>   
 <!-- <p style="text-align: center;"><b>Price: </b> {{post.price }}</p> -->
         <!-- <h4><b>Description</b></h4> -->
-        <!-- <p v-if="post.description!='null'">{{post.description}}</p> -->
+        <p v-if="post.description!='null'">{{post.description}}</p>
 		</mdb-card-body>
     
        <div  style="margin-left: auto;margin-right: auto;">
-         <!-- <mdb-btn  color="primary"  rounded style="float:left;backgroundColor:#275d2b" @click.native="modal = true">preview</mdb-btn>
-             <a href="tel:0702220000">
-             <mdb-btn color="primary" rounded >Call</mdb-btn>
-        </a>
-       <mdb-btn  color="primary" rounded style="float:" @click="showDrawer">Buy</mdb-btn> -->
-      <!-- <mdb-btn style="color:#e9ecef;background-color: #ff3547;" color="" type="submit">Read the post</mdb-btn> -->
+    
        </div>
 	</mdb-card>
 
@@ -108,7 +79,6 @@ mdbModal,
     isBold: false,
      murl:this.$store.state.iUrl,
      sm1:[],
-     
         //Slider configuration [obj]
         options: {
           currentPage: 0,
@@ -127,9 +97,7 @@ mdbModal,
 },
   methods: {
     g2p(){
-      // this.$router.push('/Pitem');
-      this.$store.commit('pdata',this.post)
-       this.$router.push({ path: '/Ritem', })
+      this.$router.push('/Pitem');
       // alert("foo")
     },
     showDrawer() {
@@ -138,13 +106,12 @@ mdbModal,
     onClose() {
       this.visible = false;
     },
-    
 
   },
   mounted() {
   //  alert("gg")
-    this.sm1=this.post.images;
-    // console.log("folio: "+JSON.stringify(this.post.images))
+    this.sm1=this.post.img;
+    console.log("item: "+JSON.stringify(this.post))
   },
 }
 </script>
@@ -153,7 +120,7 @@ mdbModal,
   width: 100%;
 }
 .bgImg{
-  height:40vh;
+  height:70vh;
   width:100%;
   background-size:cover;
   background-attachment: fixed;
