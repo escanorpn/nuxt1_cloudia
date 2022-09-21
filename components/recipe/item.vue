@@ -40,7 +40,8 @@
 		</mdb-view>
 		<mdb-card-body class="text-center pb-0" cascade>
      
-   <h5 style="text-align: center;color:#000000d9">{{post.name }}</h5>   
+   <h5 style="text-align: center;color:#000000d9">{{post.name }}</h5> 
+   <h5 style="text-align: center;color:#000000d9">{{post.id }}</h5>   
 <!-- <p style="text-align: center;"><b>Price: </b> {{post.price }}</p> -->
         <!-- <h4><b>Description</b></h4> -->
         <!-- <p v-if="post.description!='null'">{{post.description}}</p> -->

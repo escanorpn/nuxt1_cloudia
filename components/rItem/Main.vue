@@ -41,30 +41,46 @@
             </a-affix>
         </div>
 
-      	<div class="wrap" style="max-width: 1200px;">
-			<div class="card text-center"   style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;background: linear-gradient(180deg, #483f3f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 81%, rgb(60 13 11) 4%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;" >
+        <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -174px;    background: #3b3b3b">
+    <a-affix :offset-top="top" class="mTop" style="background: #110303;" >
+    <a-layout-sider 
+      breakpoint="lg"
+      collapsed-width="0"
+      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
+    font-weight: 600 !important;margin-top:22px;"
+    >
+   <p style="margin-left:12px"><u>Recommendations</u></p>
+
+      <ul v-for="(item,index) in mItems" :key="index" >
+        <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
+       
+      </ul>
+    </a-layout-sider>
+    </a-affix>
+    <a-layout class="mTop" >
+      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
+      <a-layout-content :style="{ margin: '54px 16px 0' }">
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+
+          <div class="wrap" style="max-width: 1500px;">
+			<div class="card text-center"   style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;background: linear-gradient(#483f3f 15%, #ffffff 3%, #ffffff 71%, #3c0d0b 44%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;" >
 			<div class="card-body">
 				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
 					<b>{{products.name }}</b>
 				</h2>
-	
-		  <!-- <mlist :posts="products" :key="list_key" /> -->
 		  <folio :posts="mItems" :key="list_key" />
-		<!-- <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top: -22px;" color="" type="submit">View the
-		 Portfolio</mdb-btn> -->
-			<p style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
-					<b>{{products.description }}</b>
-				</p>
-	</div>
-</div>
-</div>
-    
-      <!-- <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -157px;">
-              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
-
-    <mlist :posts="products" :key="list_key" />
-      </div>
-      </div> -->
+        <div v-html="products.description"></div>
+       
+    </div>
+  
+    <Recipe/>
+    <mdb-btn style="width:50%;margin-left:auto;margin-right:auto;color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="print">Print</mdb-btn>
+  </div>
+  </div>
+        </div>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
      </div>
    
   </Layout>
@@ -72,7 +88,7 @@
 
 <script>
 import folio from "../home/folio.vue"
-import mlist from "./list.vue"
+import Recipe from "./Recipe.vue"
 import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn,mdbProgressBar } from 'mdbvue';
 // import data from "./posts.json"
 
@@ -84,7 +100,7 @@ export default {
     // mylist,
       mdbListGroup,
       mdbListGroupItem,
-    mlist,
+    Recipe,
     mdbContainer,
     mdbCol,
     mdbRow,
@@ -111,9 +127,15 @@ export default {
       dList:false,
       cRequest:false,
       list_key:0,
+      printing:false,
     }
   },
   methods: {
+    print(){
+      // this.printing=true;
+      // this.$router.push({ path: '/Print', })
+      window.print()
+    },
          keymonitor(event) {
      
         console.log(event.target.value);
@@ -154,7 +176,7 @@ export default {
            this.dList=true;
         }
 
-          console.log("products"+JSON.stringify(myData))
+          // console.log("products"+JSON.stringify(myData))
      
   }).catch(function (response) {
       context.loading=false;

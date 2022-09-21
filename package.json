@@ -16,6 +16,7 @@
     "bootstrap": "^5.2.0",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.19.3",
+    "mailchimp-api-v3": "^1.15.0",
     "mdbvue": "^6.7.3",
     "mobile-device-detect": "^0.4.3",
     "nuxt": "^2.15.8",

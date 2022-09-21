@@ -95,7 +95,7 @@ export default {
   mounted() {
     
     this.sm1=this.post;
-    console.log("im: "+JSON.stringify(this.post))
+    // console.log("im: "+JSON.stringify(this.post))
   },
 }
 </script>

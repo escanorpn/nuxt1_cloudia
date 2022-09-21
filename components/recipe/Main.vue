@@ -55,7 +55,7 @@
     >
    <p style="margin-left:12px"><u>Recommendations</u></p>
 
-      <ul v-for="(item,index) in products" :key="index" >
+      <ul v-for="(item,index) in mItems" :key="index" >
         <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
        
       </ul>
@@ -69,7 +69,22 @@
           <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -75px;">
               <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
 
-    <mlist :posts="products" :key="list_key" />
+                <mlist :posts="products" :key="list_key" />
+
+                <mdb-row>
+                <mdb-col col="sm">
+                  <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="previous">Previous</mdb-btn>
+                </mdb-col>
+                <mdb-col col="sm">
+                  <!-- <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit">Next</mdb-btn> -->
+                </mdb-col>
+                <mdb-col col="sm">
+                  <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="next">Next</mdb-btn>
+                </mdb-col>
+                </mdb-row>
+                
+            
+                <!-- <mlist :posts="products" :key="list_key" /> -->
       </div>
       </div>
         </div>
@@ -95,7 +110,7 @@
 import mlist from "./list.vue"
 // import mylist from "./mList.vue"
 import axios from "axios"
-import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn,mdbProgressBar } from 'mdbvue';
+import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn,mdbProgressBar, } from 'mdbvue';
 // import data from "./posts.json"
 
 export default {
@@ -132,9 +147,37 @@ export default {
       dList:false,
       cRequest:false,
       list_key:0,
+      bottom: false,
+      lastId:1,
+      counter:3,
+      direction:1
     }
   },
+  watch: {
+    bottom(newValue) {
+      if (newValue) {
+        this.addMore();
+        console.log(newValue)
+      }
+    }
+  },
+  created() {
+    // this.lastId=0;
+ 
+  },
   methods: {
+    bottomVisible() {
+      const scrollY = window.scrollY+150;
+      const visible = document.documentElement.clientHeight;
+      const pageHeight = document.documentElement.scrollHeight;
+      const bottomOfPage = visible + scrollY >= pageHeight;
+      // console.log("scrollY: "+scrollY+" visible: "+visible+" pageHeight:"+pageHeight+" bottomOfPage:"+bottomOfPage)
+      return bottomOfPage || pageHeight < visible;
+    },
+    addMore() {
+      // alert("more")
+      // this.fetchFolio();
+    },
       reload(){
       console.log("reloading...");
       // this.list_key=this.list_key+1;
@@ -148,7 +191,7 @@ export default {
 
      keymonitor(event) {
      
-        console.log(event.target.value);
+        // console.log(event.target.value);
         if(event.target.value!= ""){
         this.mSearch(event.target.value);
         
@@ -181,12 +224,12 @@ export default {
               await this.$api.$post('srecipe',mData).then((response) => {
                   this.loading=false;
         // console.log("srecipe: "+ JSON.stringify(response));
-        console.log("srecipe: "+ response);
+        // console.log("srecipe: "+ response);
         const myData = response.data
        
       if(response.val==2){
           this.cRequest=false;
-          console.log(myData)
+          // console.log(myData)
            this.mItems = myData
            
            this.dList=true;
@@ -196,33 +239,85 @@ export default {
            this.cRequest=true;
         }
 
-          console.log("products"+JSON.stringify(myData))
+          // console.log("products"+JSON.stringify(myData))
      
   }).catch(function (response) {
       context.loading=false;
             //handle error
             console.log("error: "+response)
         });
+    },
+    previous(){
+      if(this.lastId-this.counter>1){
+        // this.lastId=this.lastId-this.counter;
+        // alert(this.lastId)
+        this.direction=2;
+        this.fetchFolio() 
+      }
+      // this.fetchFolio1() 
+    },
+    
+    next(){
+      this.direction=1;
+      this.fetchFolio() 
+      // this.lastId=this.lastId+this.counter;
+      
     },
     async fetchFolio() {
       const context=this;
-  this.loading=true;
-              await this.$api.$get('recipe').then((response) => {
+      this.loading=true;
+      let mData={
+        id:this.lastId,
+        counter:this.counter,
+        direction:this.direction
+      }
+              await this.$api.$post('recipe',mData).then((response) => {
                   this.loading=false;
-        console.log("response: "+ JSON.stringify(response));
+        console.log("mData: "+ JSON.stringify(mData));
+        // console.log("response: "+ JSON.stringify(response));
+     
         const myData = response.data
+        if(this.direction==2){
+           myData.reverse()
+        }
+        // let newData 
       if(response.val==2){
-          console.log("products1"+JSON.stringify(myData))
+          // console.log("products1"+JSON.stringify(myData))
           // alert("data")
-            this.products = myData.map(post => ({
+          // const lastData1 = myData;
+          // const lastData = lastData1.reverse()[0];
+          // const lastData = myData.reverse()[0]; 
+          
+          // console.log("lastData.id: "+JSON.stringify(lastData.id))
+        
+          this.products= myData.map(post => ({
             id: post.id,
             name: post.name,
-            description: post.description, 
+            description: post.description,
+            ctime: post.ctime,
+            ptime: post.ptime,
+            serving: post.serving,
+            instructions: post.instructions,
+            ingredients: post.ingredients, 
             images: post.images,
+            
           
           }))
+          this.products.forEach(element => {
+            // console.log(Object.entries(element))
+            // this.products.push(element)
+            this.lastId=element.id
+          });
+          
+          console.log("lastData.id: "+this.lastId)
+       
+          // console.log("typeofnewData[0]: "+typeof newData)
+          // this.products.push(newData[0])
+          // let prevData=this.products;
+          // this.products = Object.assign({}, newData,prevData );
+          // this.products = prevData+newData;
       }
-          console.log("products"+JSON.stringify(myData))
+          // console.log("new products"+JSON.stringify( this.products))
      
   }).catch(function (response) {
       context.loading=false;
@@ -230,6 +325,7 @@ export default {
             console.log("error: "+response)
         });
     },
+    
   },
   mounted() {
     // if(this.name!="" && this.name!=undefined){
@@ -241,6 +337,11 @@ export default {
     //   console.log("url not ok")
     // }
      this.fetchFolio()
+    this.lastId=1;
+    window.addEventListener("scroll", () => {
+      this.bottom = this.bottomVisible();
+    });
+    // this.addMore();
       console.log("loading folio")
   },
 

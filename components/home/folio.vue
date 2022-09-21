@@ -80,11 +80,11 @@ export default {
   },
   methods:{
      reload(){
-       console.log("list_reload");
+      //  console.log("list_reload");
         this.$parent.fetchNews();
     },
      loading(){
-       console.log("loading");
+      //  console.log("loading");
         this.sending=true;
     },
      done(){
