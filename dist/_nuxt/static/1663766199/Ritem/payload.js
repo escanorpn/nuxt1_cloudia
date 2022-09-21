@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/Ritem", {data:[{}],fetch:{},mutations:[]});

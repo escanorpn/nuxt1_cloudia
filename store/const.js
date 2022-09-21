@@ -1,5 +1,5 @@
-const iBase = 'http://localhost/w/vue1/';
-// const iBase = 'https://sclaudia.losenviskas.com/';
+// const iBase = 'http://localhost/w/vue1/';
+const iBase = 'https://sclaudia.losenviskas.com/';
 const base = iBase+'src/s/s2/';
 const Url = base+'public/api/';
 const iUrl = base+'storage/app/';
