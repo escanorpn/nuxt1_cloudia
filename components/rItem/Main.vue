@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div style="margin-top: -15px; overflow-x: ;">
+    <div style=" overflow-x: ;">
        <mdb-progress-bar md-mode="indeterminate" v-if="sending" />
        <mdb-edge-header color="" style="background-color: #3c0d0b ">
         <div class="home-page-background"></div>
@@ -13,7 +13,28 @@
         </div>
            </div>
       </mdb-edge-header>
-      <div style="margin-bottom: 222px;margin-top: -157px;">
+    
+
+        <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -74px;    background: #3b3b3b">
+    <a-affix :offset-top="top" class="mTop" style="background: #110303;" >
+    <!-- <a-layout-sider 
+      breakpoint="lg"
+      collapsed-width="0"
+      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
+    font-weight: 600 !important;margin-top:22px;"
+    >
+   <p style="margin-left:12px"><u>Recommendations</u></p>
+
+      <ul v-for="(item,index) in mItems" :key="index" >
+        <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
+       
+      </ul>
+    </a-layout-sider> -->
+    </a-affix>
+    <a-layout class="mTop" >
+      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
+      <a-layout-content :style="{ margin: '54px 16px 0' }">
+        <!-- <div style="margin-bottom: 222px;margin-top: -157px;">
           <a-affix :offset-top="top"  >
      
             <input class="form-control search_input dProperty mDiv" id="search" style="float:;border-radius: 50px 50px;max-width: 400px;text-align:left;margin-left: auto;margin-right: auto;padding-left:32px;cursor:text; box-shadow:12px 12px 12px black;box-shadow: 1px 6px 14px 6px #09131596;margin-bottom:33px" type="search" placeholder="Search" aria-label="Search"  v-on:keyup="keymonitor"/>
@@ -39,27 +60,7 @@
                 </mdb-list-group>
 
             </a-affix>
-        </div>
-
-        <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -174px;    background: #3b3b3b">
-    <a-affix :offset-top="top" class="mTop" style="background: #110303;" >
-    <a-layout-sider 
-      breakpoint="lg"
-      collapsed-width="0"
-      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
-    font-weight: 600 !important;margin-top:22px;"
-    >
-   <p style="margin-left:12px"><u>Recommendations</u></p>
-
-      <ul v-for="(item,index) in mItems" :key="index" >
-        <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
-       
-      </ul>
-    </a-layout-sider>
-    </a-affix>
-    <a-layout class="mTop" >
-      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
-      <a-layout-content :style="{ margin: '54px 16px 0' }">
+        </div> -->
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
 
           <div class="wrap" style="max-width: 1500px;">
@@ -68,6 +69,7 @@
 				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
 					<b>{{products.name }}</b>
 				</h2>
+        <h5 style="color:white;font-size:12px"><i>Posted on: {{products.dt}}</i></h5>
 		  <folio :posts="mItems" :key="list_key" />
         <div v-html="products.description"></div>
        
@@ -153,7 +155,8 @@ export default {
     this.mItems=d.images
     this.products=d
       this.$store.commit('pdata',d)
-       this.$router.push({ path: '/Ritem', })
+      // this.$router.go()
+      //  this.$router.push({ path: '/Ritem', })
       // alert("foo")
     },
     async mSearch(search) {

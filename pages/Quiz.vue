@@ -1,38 +1,22 @@
-<!-- <template>
-  <Home/>
-</template>
-
-<script>
-export default {
-  name: 'IndexPage'
-}
-</script> -->
 
 <template>
    
-    <!-- <Tutorial/> -->
     <div>
-      <rItemRecipe  />
-       <!-- <homeServices  /> -->
+      <quizView />
     </div>
     
-   
-    
-  
 </template>
 
 <script>
-// import Main from "./home/mainContent.vue"
-// import Services from "./home/services.vue"
 export default {
-  name: 'Print',
+  name: 'Quiz',
     head: {
-    title: 'Print',
+    title: 'Quiz',
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: 'Print description'
+        content: 'Quiz description'
       }
     ],
   },
@@ -44,7 +28,7 @@ export default {
     // Services,
   },
   mounted(){
-    window.print()
+    // window.print()
   }
 }
 </script>

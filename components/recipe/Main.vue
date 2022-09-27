@@ -46,24 +46,33 @@
         </div>
     
   <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -174px;    background: #3b3b3b">
-    <a-affix :offset-top="top" class="mTop" style="background: #110303;" >
+    <a-affix  class="mTop" style="background: #110303;" >
     <a-layout-sider 
       breakpoint="lg"
       collapsed-width="0"
-      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
+      style="color:#fff;background-color:#110303; text-shadow: 1px 1px 2px black;
     font-weight: 600 !important;margin-top:22px;"
     >
-   <p style="margin-left:12px"><u>Recommendations</u></p>
+   <p style="margin-left:12px"><u><b>Filters</b></u></p>
+
+      <ul >   
+        <li @click="filterD('Breakfast')" style="cursor:pointer">Breakfast</li>
+        <li @click="filterD('Savory')" style="cursor:pointer">Savory</li>
+        <li @click="filterD('Desserts')" style="cursor:pointer">Desserts</li>
+        <li @click="filterD('Drinks')" style="cursor:pointer">Drinks</li>
+      </ul>
+   <!-- <p style="margin-left:12px"><u>Recommendations</u></p>
 
       <ul v-for="(item,index) in mItems" :key="index" >
         <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
        
-      </ul>
+      </ul> -->
     </a-layout-sider>
     </a-affix>
-    <a-layout class="mTop" >
+    <!-- <h4 style="color:white">hello</h4> -->
       <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
       <a-layout-content :style="{ margin: '54px 16px 0' }">
+        
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
 
           <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -75px;">
@@ -73,18 +82,15 @@
 
                 <mdb-row>
                 <mdb-col col="sm">
-                  <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="previous">Previous</mdb-btn>
+                  <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="previous1">Previous</mdb-btn>
                 </mdb-col>
                 <mdb-col col="sm">
                   <!-- <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit">Next</mdb-btn> -->
                 </mdb-col>
                 <mdb-col col="sm">
-                  <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="next">Next</mdb-btn>
+                  <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="next1">Next</mdb-btn>
                 </mdb-col>
                 </mdb-row>
-                
-            
-                <!-- <mlist :posts="products" :key="list_key" /> -->
       </div>
       </div>
         </div>
@@ -92,7 +98,25 @@
       <!-- <a-layout-footer style="textAlign: center">
         Ant Design ©2018 Created by Ant UED
       </a-layout-footer> -->
-    </a-layout>
+
+    <!-- <a-affix :offset-top="right"  style="background: #110303;" >
+    <a-layout-sider 
+      breakpoint="lg"
+      collapsed-width="0"
+      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
+    font-weight: 600 !important;margin-top:22px;"
+    >
+   <p style="margin-left:12px"><u>Filters</u></p>
+
+      <ul >
+        <li @click="g2r(item)" style="cursor:pointer">Breakfast</li>
+        <li @click="g2r(item)" style="cursor:pointer">Savory</li>
+        <li @click="g2r(item)" style="cursor:pointer">Desserts</li>
+        <li @click="g2r(item)" style="cursor:pointer">Drinks</li>
+       
+      </ul>
+    </a-layout-sider>
+    </a-affix> -->
   </a-layout>
       
       <!-- <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -157px;">
@@ -109,7 +133,7 @@
 <script>
 import mlist from "./list.vue"
 // import mylist from "./mList.vue"
-import axios from "axios"
+// import axios from "axios"
 import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader, mdbListGroup,mdbListGroupItem,mdbBtn,mdbProgressBar, } from 'mdbvue';
 // import data from "./posts.json"
 
@@ -150,7 +174,10 @@ export default {
       bottom: false,
       lastId:1,
       counter:3,
-      direction:1
+      direction:1,
+      mIndex:0,
+      chunkSize:4,
+      master:[],
     }
   },
   watch: {
@@ -185,7 +212,7 @@ export default {
        this.fetchFolio();
     },
     refresh(){
-      console.log("refreshing...");
+      // console.log("refreshing...");
       this.list_key=this.list_key+1;
     },
 
@@ -211,6 +238,7 @@ export default {
     
       g2r(d){
       // this.$router.push('/Pitem');
+      console.log("pclick data: "+JSON.stringify(d))
       this.$store.commit('pdata',d)
        this.$router.push({ path: '/Ritem', })
       // alert("foo")
@@ -247,6 +275,23 @@ export default {
             console.log("error: "+response)
         });
     },
+    next1(){
+     
+      if(this.mIndex+this.chunkSize<this.master.length){
+        this.mIndex=this.mIndex+1+this.chunkSize;
+        this.chunk()
+      }
+     
+      // this.mIndex=this.mIndex+1
+    },
+    previous1(){
+       console.log(this.mIndex-1-this.chunkSize)
+      if(this.mIndex-1-this.chunkSize>-1){
+        this.mIndex=this.mIndex-1-this.chunkSize
+      }
+      this.chunk()
+    },
+
     previous(){
       if(this.lastId-this.counter>1){
         // this.lastId=this.lastId-this.counter;
@@ -263,6 +308,57 @@ export default {
       // this.lastId=this.lastId+this.counter;
       
     },
+    chunk(){
+      console.log("chunking: "+this.mIndex)
+
+    let d=this.master;
+    const da=Object.values(d);  
+
+let i = this.mIndex; 
+const chunk = da.slice(i, i + this.chunkSize);
+    this.products=chunk;
+    this.list_key=this.list_key+1;
+
+    },
+    async filterD(c) {
+      const context=this;
+      this.loading=true;
+      let mData={
+        cat:c,
+      }
+              // await this.$api.$post('recipe',mData).then((response) => {
+              await this.$api.$post('frecipe',mData).then((response) => {
+                  this.loading=false;
+        console.log("mData: "+ JSON.stringify(mData));
+        console.log("response_: "+ JSON.stringify(response.data));
+     
+        const myData = response.data;
+        
+      if(response.val==2){
+
+          this.master= myData.map(post => ({
+            id: post.id,
+            name: post.name,
+            description: post.description,
+            ctime: post.ctime,
+            ptime: post.ptime,
+            serving: post.serving,
+            instructions: post.instructions,
+            ingredients: post.ingredients, 
+            dt: post.dt, 
+            images: post.images,
+            
+          
+          }))
+          this.chunk()
+
+      }
+       
+  }).catch(function (response) {
+      context.loading=false;
+            console.log("error: "+response)
+        });
+    },
     async fetchFolio() {
       const context=this;
       this.loading=true;
@@ -271,15 +367,31 @@ export default {
         counter:this.counter,
         direction:this.direction
       }
-              await this.$api.$post('recipe',mData).then((response) => {
+              // await this.$api.$post('recipe',mData).then((response) => {
+              await this.$api.$get('recipe').then((response) => {
                   this.loading=false;
         console.log("mData: "+ JSON.stringify(mData));
-        // console.log("response: "+ JSON.stringify(response));
+        console.log("response_: "+ JSON.stringify(response.data));
      
-        const myData = response.data
-        if(this.direction==2){
-           myData.reverse()
-        }
+        const myData = response.data;
+        // this.master=myData;
+        // let md= myData1.map(post => ({
+        //     id: post.id,
+        //     name: post.name,
+        //     description: post.description,
+        //     ctime: post.ctime,
+        //     ptime: post.ptime,
+        //     serving: post.serving,
+        //     instructions: post.instructions,
+        //     ingredients: post.ingredients, 
+        //     images: post.images,
+            
+          
+        //   }))
+        // const myData=this.chunk(myData1);
+        // if(this.direction==2){
+        //    myData.reverse()
+        // }
         // let newData 
       if(response.val==2){
           // console.log("products1"+JSON.stringify(myData))
@@ -290,7 +402,7 @@ export default {
           
           // console.log("lastData.id: "+JSON.stringify(lastData.id))
         
-          this.products= myData.map(post => ({
+          this.master= myData.map(post => ({
             id: post.id,
             name: post.name,
             description: post.description,
@@ -299,15 +411,17 @@ export default {
             serving: post.serving,
             instructions: post.instructions,
             ingredients: post.ingredients, 
+            dt: post.dt, 
             images: post.images,
             
           
           }))
-          this.products.forEach(element => {
-            // console.log(Object.entries(element))
-            // this.products.push(element)
-            this.lastId=element.id
-          });
+          this.chunk()
+          // this.products.forEach(element => {
+          //   // console.log(Object.entries(element))
+          //   // this.products.push(element)
+          //   this.lastId=element.id
+          // });
           
           console.log("lastData.id: "+this.lastId)
        

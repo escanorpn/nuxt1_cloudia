@@ -19,7 +19,7 @@
       
      <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}"  >
       <mdb-view hover cascade class="ms">
-              <img  :src="murl+mItems.url" alt="Card image cap" class="ms1" style="max-width:200px"/>
+              <img  v-if="mItems.url" :src="murl+mItems.url" alt="Card image cap" class="ms1" style="max-width:200px"/>
                 <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
       </mdb-view>
 		<mdb-card-body class="text-center pb-0" cascade>
@@ -119,7 +119,7 @@ export default {
    
     this.mItems=this.$store.state.pitem.images[0]
     this.products=this.$store.state.pitem
-    console.log('Data: ' +JSON.stringify(this.mItems));
+    console.log('pitem Data: ' +JSON.stringify(this.$store.state.pitem));
   },
 
 }

@@ -19,7 +19,7 @@
     <div  v-for="(item,index) in sm1" :key="index"  >
    
       <!-- <img  :src="murl+item.url" alt="Card image cap" class="ms1"/> -->
-              <div class="bgImg" :style="{backgroundImage:`url(${murl+item.url})`}"></div>
+              <div v-if="item.url" class="bgImg" :style="{backgroundImage:`url(${murl+item.url})`}"></div>
 
 				<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
     </div>
@@ -145,7 +145,7 @@ mdbModal,
   mounted() {
   //  alert("gg")
     this.sm1=this.post.images;
-    // console.log("folio: "+JSON.stringify(this.post.images))
+    console.log("folioz: "+JSON.stringify(this.post.images))
   },
 }
 </script>
