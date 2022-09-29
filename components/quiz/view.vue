@@ -12,7 +12,7 @@
         v-if="loaded"
         :src="iframe.src"
       
-        frameborder="0" style="height:380px;width:100%; border:none;"
+        frameborder="0" style="height:780px;width:100%; border:none;"
         
       >loading</iframe>
       <!-- <iframe 
@@ -38,7 +38,8 @@ export default {
       loaded: false,
       sending:false,
       iframe: {
-        src: 'https://docs.google.com/forms/d/e/1FAIpQLSd4F2CZX5POMMBUg0wLyfiE2xhex4fSDSRlGWQbcXonHddh4A/viewform?embedded=true',
+        // src: 'https://docs.google.com/forms/d/e/1FAIpQLSd4F2CZX5POMMBUg0wLyfiE2xhex4fSDSRlGWQbcXonHddh4A/viewform?embedded=true',
+        src: '',
         style: null,
         wrapperStyle: null,
       }
@@ -47,13 +48,17 @@ export default {
   methods:{
   init(){
     this.$api.$get('quiz').then((response) => {
-      console.log("response: "+ JSON.stringify(response));
+      // console.log("qvresponse: "+ JSON.stringify(response.val));    
+       console.log("qvresponse: "+ response.val);
        
     this.emsg4 = response.data;
             //  this.clearForm1();
             this.error4 = true
-          if(response.data.code==2){ 
-            this.iframe.src=response.data.data.link
+            
+          if(response.val==response.val){ 
+            // this.iframe.src=response.data.data.link
+            // console.log("qvr: "+ JSON.stringify(response.data[0].link));
+            this.iframe.src=response.data[0].link
             // this.emsg4 = response.data.message;
             //  this.clearForm1();
             // this.error4 = true
