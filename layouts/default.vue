@@ -14,6 +14,7 @@
         <mdb-nav-item class="nav_text"  to="/recipes">Recipes</mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/Portfolio">Portfolio</mdb-nav-item>
         <mdb-nav-item class="nav_text"   to="/Services">Services</mdb-nav-item>
+        <mdb-nav-item  class="nav_text"  to="/blog">Blog</mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/about">About</mdb-nav-item>
         <mdb-nav-item class="nav_text"  to="/quiz">Quiz</mdb-nav-item>
         <mdb-nav-item class="nav_text"  to="/about">Shop</mdb-nav-item>
