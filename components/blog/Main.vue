@@ -1,26 +1,27 @@
 <template>
   <Layout>
     <div style="margin-top: -15px; overflow-x: ;">
-       <!-- <md-progress-bar md-mode="indeterminate" v-if="sending1" /> -->
-       <mdb-edge-header color="" style="background-color: #3c0d0b ">
-        <div class="home-page-background"></div>
-           <div class="container">
-              <div class="loading-box" v-if="loading">
+      <div class="loading-box" v-if="loading">
                 <div class="loader"></div>
               </div>
+       <!-- <md-progress-bar md-mode="indeterminate" v-if="sending1" /> -->
+       <!-- <mdb-edge-header color="" style="background-color: #3c0d0b ">
+        <div class="home-page-background"></div>
+           <div class="container">
+           
         <div class="row">
           <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;left: 0;width:100%;">
-          <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Recipes</h1>
+          <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Blog</h1>
         </div>
         </div>
            </div>
          
-      </mdb-edge-header>
+      </mdb-edge-header> -->
 
       <div style="margin-bottom: 222px;margin-top: -157px;">
           <a-affix :offset-top="top"  >
      
-            <input class="form-control search_input dProperty mDiv" id="search" style="float:;border-radius: 50px 50px;max-width: 400px;text-align:left;margin-left: auto;margin-right: auto;padding-left:32px;cursor:text; box-shadow:12px 12px 12px black;box-shadow: 1px 6px 14px 6px #09131596;margin-bottom:33px" type="search" placeholder="Search" aria-label="Search"  v-on:keyup="keymonitor"/>
+            <!-- <input class="form-control search_input dProperty mDiv" id="search" style="float:;border-radius: 50px 50px;max-width: 400px;text-align:left;margin-left: auto;margin-right: auto;padding-left:32px;cursor:text; box-shadow:12px 12px 12px black;box-shadow: 1px 6px 14px 6px #09131596;margin-bottom:33px" type="search" placeholder="Search" aria-label="Search"  v-on:keyup="keymonitor"/> -->
 
                 <mdb-list-group v-if="dList">
                   <div style="margin-top: -22px;box-shadow: rgb(9 19 21 / 59%) 1px 6px 14px 6px;max-width: 410px;
@@ -46,31 +47,7 @@
         </div>
     
   <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -174px;    background: #3b3b3b">
-    <a-affix  class="mTop" style="background: #110303;" >
-    <a-layout-sider 
-      breakpoint="lg"
-      collapsed-width="0"
-      style="color:#fff;background-color:#110303; text-shadow: 1px 1px 2px black;
-    font-weight: 600 !important;margin-top:22px;"
-    >
-   <p style="margin-left:12px"><u><b>Filters</b></u></p>
-
-      <ul >   
-        <li @click="filterD('Breakfast')" style="cursor:pointer">Breakfast</li>
-        <li @click="filterD('Savory')" style="cursor:pointer">Savory</li>
-        <li @click="filterD('Desserts')" style="cursor:pointer">Desserts</li>
-        <li @click="filterD('Drinks')" style="cursor:pointer">Drinks</li>
-      </ul>
-   <!-- <p style="margin-left:12px"><u>Recommendations</u></p>
-
-      <ul v-for="(item,index) in mItems" :key="index" >
-        <li @click="g2r(item)" style="cursor:pointer">{{item.name}} </li>
-       
-      </ul> -->
-    </a-layout-sider>
-    </a-affix>
-    <!-- <h4 style="color:white">hello</h4> -->
-      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
+   
       <a-layout-content :style="{ margin: '54px 16px 0' }">
         
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
@@ -95,36 +72,9 @@
       </div>
         </div>
       </a-layout-content>
-      <!-- <a-layout-footer style="textAlign: center">
-        Ant Design ©2018 Created by Ant UED
-      </a-layout-footer> -->
-
-    <!-- <a-affix :offset-top="right"  style="background: #110303;" >
-    <a-layout-sider 
-      breakpoint="lg"
-      collapsed-width="0"
-      style="color:#fff;background-color:transparent; text-shadow: 1px 1px 2px black;
-    font-weight: 600 !important;margin-top:22px;"
-    >
-   <p style="margin-left:12px"><u>Filters</u></p>
-
-      <ul >
-        <li @click="g2r(item)" style="cursor:pointer">Breakfast</li>
-        <li @click="g2r(item)" style="cursor:pointer">Savory</li>
-        <li @click="g2r(item)" style="cursor:pointer">Desserts</li>
-        <li @click="g2r(item)" style="cursor:pointer">Drinks</li>
-       
-      </ul>
-    </a-layout-sider>
-    </a-affix> -->
-  </a-layout>
       
-      <!-- <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -157px;">
-              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
-
-    <mlist :posts="products" :key="list_key" />
-      </div>
-      </div> -->
+  </a-layout>
+   
      </div>
    
   </Layout>
