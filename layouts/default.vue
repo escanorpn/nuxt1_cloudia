@@ -15,7 +15,7 @@
         <mdb-nav-item  class="nav_text"  to="/Portfolio">Portfolio</mdb-nav-item>
         <mdb-nav-item class="nav_text"   to="/Services">Services</mdb-nav-item>
         <mdb-nav-item  class="nav_text"  to="/blog">Blog</mdb-nav-item>
-        <mdb-nav-item  class="nav_text"  to="/about">About</mdb-nav-item>
+        <!-- <mdb-nav-item  class="nav_text"  to="/about">About</mdb-nav-item> -->
         <mdb-nav-item class="nav_text"  to="/quiz">Quiz</mdb-nav-item>
         <mdb-nav-item class="nav_text"  to="/about">Shop</mdb-nav-item>
         <!-- <mdb-nav-item  class="nav_text"   to="/admin">Admin</mdb-nav-item> -->
@@ -39,19 +39,24 @@
     </Nuxt>
         
    <!-- Footer -->
-   <div class="" style="background-color:#000">
-			<div class="card text-center" :style="folio"  style="width: 90%;  margin-right: auto; margin-left: auto; margin-top: 42px;background: linear-gradient(180deg, transparent 35%, #efefef 3%, #efefef 81%, rgb(60 13 11) 4%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;" >
+   <div class="" style="background-color:#3b3b3b">
+   
+			<div class="card text-center" :style="folio"  style="width: 90%;  margin-right: auto; margin-left: auto; margin-top: 42px;background: linear-gradient(180deg, #efefef 35%, #efefef 3%, #efefef 81%, rgb(60 13 11) 4%);box-shadow:rgb(40 18 10 / 59%) 0px 32px 32px;" >
 			<div class="card-body">
-				<h4 style="color:white;text-shadow: 1px 1px 2px black;margin-top: -23px;text-shadow: 4px 2px 2px #2c0406;">
+        <h4 style="color:black;margin-top: -23px;text-shadow: 4px 2px 2px #efefef;">
 					<b>Subscribe to mail list</b>
+          
 				</h4>
-	
+        <mdb-icon fab icon="facebook-f" style=""/> 
+      <mdb-icon fab icon="instagram" />
+      <mdb-icon fab icon="twitter" /> 
+      <mdb-icon fab icon="pinterest-p" />
         <Footer/>
 		
 		
-	</div>
-</div>
-</div>
+    </div>
+  </div>
+  </div>
 
     </div>
 </template>

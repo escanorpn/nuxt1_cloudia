@@ -1,8 +1,8 @@
 <template>
-<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-4 col-md-4" data-v-320224c2="" v-if="post.name" v-on:click="g2p">
+<div data-v-5e2edc68="" data-v-40b8d964="" class="mb-4 col-md-4" data-v-320224c2="" v-if="post.name" v-on:click="g2p" >
 
 
-     <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}" wide >
+     <mdb-card v-animateOnScroll="{animation: 'fadeInLeft', delay: 30}" wide  style="cursor:pointer">
 		<mdb-view hover cascade class="ms">
         <!-- <a-carousel effect="slide" arrows autoplay  >
     <div
@@ -23,7 +23,8 @@
 				<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
     </div>
   </a-carousel> -->
-  <div v-if="sm1" class="bgImg" :style="{backgroundImage:`url(${murl+sm1})`}"></div>
+  <!-- <div v-if="sm1" class="bgImg" :style="{backgroundImage:`url(${murl+sm1})`}"></div> -->
+  <img :src=murl+sm1 class="bgImg" ></img>
 			<!-- <slider ref="slider" :options="options">
          
           <slideritem v-for="(item,index) in someList" :key="index" > 
@@ -41,7 +42,7 @@
 		<mdb-card-body class="text-center pb-0" cascade>
      
    <h5 style="text-align: center;color:#000000d9">{{post.name }}</h5> 
-   <h5 style="text-align: center;color:#000000d9">{{post.id }}</h5>   
+   <!-- <h5 style="text-align: center;color:#000000d9">{{post.id }}</h5>    -->
 <!-- <p style="text-align: center;"><b>Price: </b> {{post.price }}</p> -->
         <!-- <h4><b>Description</b></h4> -->
         <!-- <p v-if="post.description!='null'">{{post.description}}</p> -->
@@ -154,7 +155,7 @@ mdbModal,
   width: 100%;
 }
 .bgImg{
-  height:40vh;
+  /* height:40vh; */
   width:100%;
   background-size:cover;
   background-attachment: fixed;
@@ -167,6 +168,7 @@ mdbModal,
     /* margin-top: 22px; */
     margin-bottom: 22px;
     background-color: #e9ecef;
+    cursor:pointer;
 }
 .ms2{
   /* max-width: 1340px;

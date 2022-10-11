@@ -1,10 +1,38 @@
 <template>
  <div :style="{ padding: '0px', background: '#fff', minHeight: '360px',paddingRight:'0px',
     paddingLeft: '0px'}">
-  <div class="loading-box" v-if="loading">
+
+<div class="loading-box" v-if="loading">
                 <div class="loader"></div>
               </div>
-<div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 100%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: 25px;adding-right: 0px;
+       <mdb-edge-header color="" style="background-color: #3c0d0b ">
+        <div class="home-page-background"></div>
+           <div class="container">
+           
+        <div class="row">
+          <div class="col-lg-8 text-center mx-auto" style="margin-top:87px;position: fixed;">
+          <!-- <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;color: #ffffff;text-shadow: #cb6dff 1px 1px 2px;margin-top: 5px;margin-left: auto;margin-right: auto;" >Portfolio</h1> -->
+        </div>
+        </div>
+           </div>
+      </mdb-edge-header>
+    
+
+        <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -74px;    background: #3b3b3b">
+   
+    <a-layout class="mTop" style=" background-color: #3b3b3b;" >
+      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
+      <a-layout-content :style="{ margin: '54px 16px 0' }">
+       
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+
+          <div class="wrap" style="max-width: 1500px;">
+			<div class="card text-center"   style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;
+      background-color:##fffeec;
+      /* background:linear-gradient(#a0998f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 71%, #ebe6de 44%); */
+      " >
+			<div class="card-body">
+        <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 100%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: 25px;adding-right: 0px;
     padding-left: 0px;">
     <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
         <!-- <div id="editor" ref="editor">{{iframe.src}}</div> -->
@@ -15,15 +43,23 @@
         frameborder="0" style="height:780px;width:100%; border:none;"
         
       >loading</iframe>
-      <!-- <iframe 
-      ref="iframe"
-       :src="iframe.src" 
-     
-       frameborder="0"  style="height:380px;width:6000px;border:none;"
-       ></iframe> -->
+
 
     </div>
 </div>
+    </div>
+  
+    <!-- <Recipe/> -->
+    <!-- <mdb-btn style="width:50%;margin-left:auto;margin-right:auto;color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;" color="" type="submit" v-on:click="print">Print</mdb-btn> -->
+  </div>
+  </div>
+        </div>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
+
+
+
  </div>
  
 
@@ -31,8 +67,15 @@
 
 <script>
   
+import { mdbContainer, mdbCol, mdbRow,  mdbEdgeHeader,  } from 'mdbvue';
   // import api from "../../../services/api";
 export default {
+  components:{
+    mdbContainer,
+    mdbCol,
+    mdbRow,
+    mdbEdgeHeader,
+  },
   data() {
     return {
       loaded: false,

@@ -17,19 +17,22 @@
 
         <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -74px;    background: #3b3b3b">
    
-    <a-layout class="mTop" >
+    <a-layout class="mTop" style=" background-color: #3b3b3b;" >
       <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
       <a-layout-content :style="{ margin: '54px 16px 0' }">
        
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
 
           <div class="wrap" style="max-width: 1500px;">
-			<div class="card text-center"   style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;background:linear-gradient(#a0998f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 71%, #ebe6de 44%);" >
+			<div class="card text-center"   style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;
+      background-color:##fffeec;
+      /* background:linear-gradient(#a0998f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 71%, #ebe6de 44%); */
+      " >
 			<div class="card-body">
-				<h2 style="color:white;text-shadow: 1px 1px 2px black;margin-top: -15px;text-shadow: 4px 2px 2px #2c0406;">
+				<h2 style="color:black;margin-top: -15px;">
 					<b>{{products.name }}</b>
 				</h2>
-        <h5 style="color:white;font-size:12px"><i>Posted on: {{products.dt}}</i></h5>
+        <h5 style="color:black;font-size:12px"><i>Posted on: {{products.dt}}</i></h5>
 		  <!-- <folio :posts="mItems" :key="list_key" /> -->
         <div v-html="products.description"></div>
        
@@ -151,9 +154,15 @@ export default {
   mounted() {
    
     this.mItems=this.$store.state.pitem.images
-    this.products=this.$store.state.pitem
+    let str2=this.$store.state.pitem
+
+    var str1=JSON.stringify(str2);
+    
+    const a=str1.replaceAll('src',"style='max-width:57%' src"); 
+    let str=JSON.parse(a)
+    this.products=str
     // alert(JSON.stringify(this.$store.state.pitem))
-    console.log('BData: ' +JSON.stringify(this.$store.state.pitem));
+    console.log('BData: ' +JSON.stringify(this.products));
   },
 
 }

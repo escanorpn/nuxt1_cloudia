@@ -1,25 +1,6 @@
 <template>
     <div class="">
-      <!-- <form novalidate style="
-      margin-left: auto;
-      margin-right: auto;z-index:0;
-      justify-content: space-around;" class="md-layout" >
-        <md-card class="md-layout-item md-size-90 md-small-size-100">
-        
-         
-            <mdb-row>
-        <mdb-col col="sm">   
-          <mdb-input type="email" label="email" outline :disabled="sending" 
-          v-model="email" name="email" style="box-shadow: rgb(38 3 3) 1px 5px 5px;"/>
-        </mdb-col>
-        <mdb-col col="sm">   
-            <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top:22px" color="" type="submit">Subscribe</mdb-btn>
-        </mdb-col>
-            </mdb-row>
-        </md-card>
-        </form> -->
-        <!-- Begin Mailchimp Signup Form -->
-<!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css"> -->
+
 <style type="text/css">
 	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
 	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
@@ -27,15 +8,32 @@
 </style>
 <div id="mc_embed_signup" style="background-color: transparent;
     width: 90%;">
-  
-  <form action="https://gmail.us8.list-manage.com/subscribe/post?u=b09c52d078c85a985858bec97&amp;id=17b99f3ab4&amp;f_id=00c85fe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+       <mdb-row>
+    <mdb-col col="sm"> 
+     
+
+      <ul>
+        <li><mdb-icon fab icon="facebook-f" style=""/> </li>
+        <li><mdb-icon fab icon="instagram" style=""/> </li>
+        <li><mdb-icon fab icon="twitter" style=""/> </li>
+        <li><mdb-icon fab icon="pinterest-p" style=""/> </li>
+      </ul>
+      
+
+        <!-- <mdb-nav-item  class="nav_text"  to="/about">  </mdb-nav-item>
+        <mdb-nav-item  class="nav_text"  to="/about">  </mdb-nav-item>
+        <mdb-nav-item  class="nav_text"  to="/about">  </mdb-nav-item> -->
+    </mdb-col>
+    <mdb-col col="sm" > 
+  <form action="https://spiceandheat.us20.list-manage.com/subscribe/post?u=4a2308066ddfeee2224531a54&amp;id=6cd632c502&amp;f_id=00813ee7f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate >
         <div id="mc_embed_signup_scroll">
-        <md-card class="md-layout-item md-size-90 md-small-size-100">
+        <md-card class="md-layout-item md-small-size-90">
+          
         <mdb-row>
     <mdb-col col="sm">   
       <div class="mc-field-group">
       <mdb-input name="EMAIL" type="email" label="email" outline :disabled="sending" 
-          v-model="email" style="box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top:42px;background-color:#fff" />
+          v-model="email" style="box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top:42px;background-color:#fff;max-width:300px" />
       <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
     </div>
     </mdb-col>
@@ -59,6 +57,8 @@
         </div>
     </div>
 </form>
+</mdb-col>
+       </mdb-row>
     <!-- <form action="https://gmail.us8.list-manage.com/subscribe/post?u=b09c52d078c85a985858bec97&amp;id=17b99f3ab4&amp;f_id=00c85fe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
         <h2>Subscribe</h2>
@@ -90,13 +90,13 @@
   </template>
   
   <script>
-    import {  mdbBtn, mdbInput, mdbRow, mdbCol } from 'mdbvue';
+    import {  mdbBtn, mdbInput, mdbRow, mdbCol,mdbNavItem,mdbIcon } from 'mdbvue';
     // import Mailchimp from 'mailchimp-api-v3'
 
     export default {
         components: {
           mdbBtn,
-          mdbInput, mdbRow, mdbCol,
+          mdbInput, mdbRow, mdbCol,mdbNavItem,mdbIcon
 
         },
       name: 'Footer',

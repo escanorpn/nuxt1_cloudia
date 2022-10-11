@@ -53,7 +53,8 @@
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
 
           <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -75px;">
-              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
+              <div class="card-body" style="color: rgba(1, 5, 9, 0.63);
+              background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
 
                 <mlist :posts="products" :key="list_key" />
 
@@ -134,7 +135,7 @@ export default {
     bottom(newValue) {
       if (newValue) {
         this.addMore();
-        console.log(newValue)
+        // console.log(newValue)
       }
     }
   },
@@ -156,7 +157,7 @@ export default {
       // this.fetchFolio();
     },
       reload(){
-      console.log("reloading...");
+      // console.log("reloading...");
       // this.list_key=this.list_key+1;
        this.refresh();
        this.fetchFolio();
@@ -188,7 +189,7 @@ export default {
     
       g2r(d){
       // this.$router.push('/Pitem');
-      console.log("pclick data: "+JSON.stringify(d))
+      // console.log("pclick data: "+JSON.stringify(d))
       this.$store.commit('pdata',d)
        this.$router.push({ path: '/Ritem', })
       // alert("foo")
@@ -259,7 +260,7 @@ export default {
       
     },
     chunk(){
-      console.log("chunking: "+this.mIndex)
+      // console.log("chunking: "+this.mIndex)
 
     let d=this.master;
     const da=Object.values(d);  
@@ -279,8 +280,8 @@ const chunk = da.slice(i, i + this.chunkSize);
               // await this.$api.$post('recipe',mData).then((response) => {
               await this.$api.$post('frecipe',mData).then((response) => {
                   this.loading=false;
-        console.log("mData: "+ JSON.stringify(mData));
-        console.log("response_: "+ JSON.stringify(response.data));
+        // console.log("mData: "+ JSON.stringify(mData));
+        // console.log("response_: "+ JSON.stringify(response.data));
      
         const myData = response.data;
         
@@ -320,8 +321,8 @@ const chunk = da.slice(i, i + this.chunkSize);
               // await this.$api.$post('recipe',mData).then((response) => {
               await this.$api.$get('blog').then((response) => {
                   this.loading=false;
-        console.log("mData: "+ JSON.stringify(mData));
-        console.log("response_: "+ JSON.stringify(response.data));
+        // console.log("mData: "+ JSON.stringify(mData));
+        // console.log("response_: "+ JSON.stringify(response.data));
      
         const myData = response.data;
         // this.master=myData;
@@ -373,7 +374,7 @@ const chunk = da.slice(i, i + this.chunkSize);
           //   this.lastId=element.id
           // });
           
-          console.log("lastData.id: "+this.lastId)
+          // console.log("lastData.id: "+this.lastId)
        
           // console.log("typeofnewData[0]: "+typeof newData)
           // this.products.push(newData[0])
@@ -406,7 +407,7 @@ const chunk = da.slice(i, i + this.chunkSize);
       this.bottom = this.bottomVisible();
     });
     // this.addMore();
-      console.log("loading folio")
+      // console.log("loading folio")
   },
 
 }
