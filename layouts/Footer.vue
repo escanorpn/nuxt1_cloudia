@@ -1,142 +1,125 @@
 <template>
-    <div class="">
-
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
-	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup" style="background-color: transparent;
-    width: 90%;">
-       <mdb-row>
-    <mdb-col col="sm"> 
+  <!-- Footer -->
+  <mdb-footer style="background-color:#332d2d">
+    <!-- Grid container -->
+    <mdb-container class="p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><mdb-icon fab icon="facebook-f"
+        /></a>
+        
+        <!-- Twitter -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><mdb-icon fab icon="twitter"
+        /></a>
      
-
-      <ul>
-        <li><mdb-icon fab icon="facebook-f" style=""/> </li>
-        <li><mdb-icon fab icon="instagram" style=""/> </li>
-        <li><mdb-icon fab icon="twitter" style=""/> </li>
-        <li><mdb-icon fab icon="pinterest-p" style=""/> </li>
-      </ul>
+        <!-- Instagram -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><mdb-icon fab icon="instagram"
+        /></a>
+        <!-- Linkedin -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><mdb-icon fab icon="pinterest-p"
+        /></a>
       
+      </section>
+      <!-- Section: Social media -->
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <mdb-row center class="d-flex">
+            <!--Grid column-->
+            <mdb-col auto>
+              <p class="pt-2">
+                <strong>Sign up for our newsletter</strong>
+              </p>
+            </mdb-col>
+          </mdb-row>
+            <mdb-row center class="d-flex">
 
-        <!-- <mdb-nav-item  class="nav_text"  to="/about">  </mdb-nav-item>
-        <mdb-nav-item  class="nav_text"  to="/about">  </mdb-nav-item>
-        <mdb-nav-item  class="nav_text"  to="/about">  </mdb-nav-item> -->
-    </mdb-col>
-    <mdb-col col="sm" > 
-  <form action="https://spiceandheat.us20.list-manage.com/subscribe/post?u=4a2308066ddfeee2224531a54&amp;id=6cd632c502&amp;f_id=00813ee7f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate >
-        <div id="mc_embed_signup_scroll">
-        <md-card class="md-layout-item md-small-size-90">
-          
-        <mdb-row>
-    <mdb-col col="sm">   
-      <div class="mc-field-group">
-      <mdb-input name="EMAIL" type="email" label="email" outline :disabled="sending" 
-          v-model="email" style="box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top:42px;background-color:#fff;max-width:300px" />
-      <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+            <!--Grid column-->
+            <!--Grid column-->
+            <mdb-col md="12" col="12">
+              <!-- Email input -->
+              <mdb-input  
+              outline 
+                style="color: red;background-color:white"
+                type="email"
+                id="form5Example2"
+                label="Email address"
+                wrapperClass="mb-4"
+                  
+                  textColor="red"
+                  required
+              />
+            </mdb-col>
+            <!--Grid column-->
+            <!--Grid column-->
+         
+            <!--Grid column-->
+          </mdb-row>
+          <mdb-row>
+            <mdb-col md="5" col="12">
+              <!-- Submit button -->
+              <mdb-btn outline="light" class="mb-4"> Subscribe </mdb-btn>
+            </mdb-col>
+          </mdb-row>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+      <!-- Section: Text -->
+      <!-- <section class="mb-4">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+          distinctio earum repellat quaerat voluptatibus placeat nam,
+          commodi optio pariatur est quia magnam eum harum corrupti
+          dicta, aliquam sequi voluptate quas.
+        </p>
+      </section> -->
+    </mdb-container>
+    <!-- Grid container -->
+    <!-- Copyright -->
+    <div
+      class="text-center p-3"
+      style="background-color: rgba(0, 0, 0, 0.2)"
+    >
+      © 2020 Copyright:
+      <a class="text-white" href="https://vector.losenviskas.com"
+        >Dexter</a
+      >
     </div>
-    </mdb-col>
-    <mdb-col col="sm">   
-        <mdb-btn style="color:#e9ecef;background: linear-gradient(315deg,#3f0d12,#a71d31 74%);box-shadow: rgb(38 3 3) 1px 5px 5px;margin-top:42px" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" >Subscribe</mdb-btn>
-    </mdb-col>
-        </mdb-row>
-    </md-card>
+    <!-- Copyright -->
+  </mdb-footer>
+  <!-- Footer -->
+</template>
+<script>
+  import { mdbFooter, mdbContainer, mdbRrow, mdbCol, mdbIcon, mdbBtn,mdbInput } from 'mdbvue';
 
-	<div id="mce-responses" class="clear foot">
-		<div class="response" id="mce-error-response" style="display:none;background-color: #3c0d0b;
-    color: #fff;"></div>
-		<div class="response" id="mce-success-response" style="display:none;background-color: #3c0d0b;
-    color: #fff;" ></div>
-	</div> 
-    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-      <input type="text" name="b_b09c52d078c85a985858bec97_17b99f3ab4" tabindex="-1" value=""></div>
-        <div class="optionalParent">
-            <div class="clear foot">
-            </div>
-        </div>
-    </div>
-</form>
-</mdb-col>
-       </mdb-row>
-    <!-- <form action="https://gmail.us8.list-manage.com/subscribe/post?u=b09c52d078c85a985858bec97&amp;id=17b99f3ab4&amp;f_id=00c85fe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-        <div id="mc_embed_signup_scroll">
-        <h2>Subscribe</h2>
-        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-<div class="mc-field-group">
-	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-</label>
-	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
-	<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
-</div>
-	<div id="mce-responses" class="clear foot">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b09c52d078c85a985858bec97_17b99f3ab4" tabindex="-1" value=""></div>
-        <div class="optionalParent">
-            <div class="clear foot">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-                <p class="brandingLogo"><a href="http://eepurl.com/h_fuAv" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
-            </div>
-        </div>
-    </div>
-</form> -->
-<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFBJ6E-fSLkAV-zgK6WYtm4AFICr2txhHFqW5K4h-Y7UmqXw/viewform?embedded=true" width="640" height="407" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
-</div>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<!--End mc_embed_signup-->
-    </div>
-  </template>
-  
-  <script>
-    import {  mdbBtn, mdbInput, mdbRow, mdbCol,mdbNavItem,mdbIcon } from 'mdbvue';
-    // import Mailchimp from 'mailchimp-api-v3'
-
-    export default {
-        components: {
-          mdbBtn,
-          mdbInput, mdbRow, mdbCol,mdbNavItem,mdbIcon
-
-        },
-      name: 'Footer',
-      data: () => ({
-        sending:false,
-         email: null,
- 
-      }),
-
-       mounted() {
-
-  
+  export default {
+    components: {
+      mdbFooter,
+      mdbContainer,
+      mdbRrow,
+      mdbCol,
+      mdbIcon,
+      mdbBtn,
+      mdbInput
     },
-      methods: {
-      
-  
-        subscribe(){
-            let apiKey="9d9966199ff0cddb380a06c8ce8f55c5-us8";
-    //         const mailchimp = new Mailchimp(apiKey);
-    //         try{
-    //   const response =  mailchimp.request({
-    //     method: 'post',
-    //     path: `/lists/${audienceId}/members`,
-    //     body: {
-    //       email_address,
-    //       status: "subscribed"
-    //     }
-    //   })
-    //   const { _links, ...result } = response
-    //   res.status(result.statusCode).json(result)
-    // }catch(err){
-    // //   res.status(err.status).send(err.detail)
-    // console.log(err)
-    // }
-}
-       
-      }
-    }
-  </script>
-  
-  <style lang="scss" scoped>
-  
-  </style>
+  };
+</script>

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[36],{1446:function(e,n,t){"use strict";t.r(n);var c={name:"Recipes",head:{title:"Recipes",meta:[{hid:"Recipes",name:"Recipes",content:"Recipes"}]},props:{},components:{}},o=t(77),component=Object(o.a)(c,(function(){var e=this._self._c;return e("div",[e("blogMain")],1)}),[],!1,null,null,null);n.default=component.exports}}]);

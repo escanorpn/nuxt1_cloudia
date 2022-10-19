@@ -1,6 +1,24 @@
 <template>
   <Layout>
-    <div style="margin-top: -15px; overflow-x: ;">
+
+    <div style="margin-top: -515px;overflow-x: ;">
+       
+    <!-- <div class="page-header" style="min-height: 5vh;" >
+ 
+ <div class="container">
+   
+<div class="row">
+  <div class="col-lg-8 text-center mx-auto" style="margin-top:27px">
+    <h1 class="text-white pt-3 mt-n5" style=" font-weight: 900;font-size: 2p;color: transparent;
+text-shadow: #cb6dff 1px 1px 2px;" >BLOG</h1>
+
+  </div>
+</div>
+</div>
+<div class="position-absolute w-100 z-index-1 bottom-0">
+
+</div>
+</div> -->
       <div class="loading-box" v-if="loading">
                 <div class="loader"></div>
               </div>
@@ -18,7 +36,7 @@
          
       </mdb-edge-header> -->
 
-      <div style="margin-bottom: 222px;margin-top: -157px;">
+      <div style="margin-bottom: 222px;margin-top: -157px; ">
           <a-affix :offset-top="top"  >
      
             <!-- <input class="form-control search_input dProperty mDiv" id="search" style="float:;border-radius: 50px 50px;max-width: 400px;text-align:left;margin-left: auto;margin-right: auto;padding-left:32px;cursor:text; box-shadow:12px 12px 12px black;box-shadow: 1px 6px 14px 6px #09131596;margin-bottom:33px" type="search" placeholder="Search" aria-label="Search"  v-on:keyup="keymonitor"/> -->
@@ -48,13 +66,13 @@
     
   <a-layout id="components-layout-demo-responsive" style="padding-top: 2px; margin-top: -174px;    background: #3b3b3b">
    
-      <a-layout-content :style="{ margin: '54px 16px 0' }">
+      <a-layout-content :style="{ margin: '74px 0px 0' }">
         
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+        <div :style="{ paddingTop: '24px',paddingLeft:'0px',paddingRight:'0px',maxWidth:'1300px',margin:'auto', background: '#fff', minHeight: '360px', marginBottom:'100px', marginTop:'20px' }">
 
-          <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 99%; max-width: 1300px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -75px;">
+          <div class="card white lighten-1 black-text" style="box-shadow:rgb(34 94 222 / 19%) -1px -11px 32px;width: 100%; max-width: 1200px;margin-left:auto; margin-right: auto;    border-radius: 0.25rem;margin-top: -75px;">
               <div class="card-body" style="color: rgba(1, 5, 9, 0.63);
-              background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;">
+              background: linear-gradient(21deg, white 9%, white 57%, #d9d0d000 1%) center center / cover fixed;padding:0px;max-width:1100px;width:100%;margin:auto">
 
                 <mlist :posts="products" :key="list_key" />
 

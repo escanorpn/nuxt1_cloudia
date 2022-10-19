@@ -6,7 +6,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt1',
+    title: 'Claudia',
     htmlAttrs: {
       lang: 'en'
     },
@@ -69,6 +69,9 @@ export default {
     transpile: [
       'mdbvue/lib/components'
     ]
-  }
+  },
   
+    server: {
+        host: "0.0.0.0"
+    }
 }

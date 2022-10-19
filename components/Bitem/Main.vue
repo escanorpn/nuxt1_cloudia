@@ -19,16 +19,16 @@
    
     <a-layout class="mTop" style=" background-color: #3b3b3b;" >
       <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
-      <a-layout-content :style="{ margin: '54px 16px 0' }">
-       
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+      <a-layout-content :style="{ margin: '74px 0px 0' }">
+        
+        <div :style="{ paddingTop: '24px',paddingLeft:'0px',paddingRight:'0px',maxWidth:'1300px',margin:'auto', background: '#fff', minHeight: '360px', marginBottom:'100px', marginTop:'20px' }">
 
           <div class="wrap" style="max-width: 1500px;">
 			<div class="card text-center"   style="width: 100%; max-width: 1200px; margin-right: auto; margin-left: auto; margin-top: -142px;
       background-color:##fffeec;
       /* background:linear-gradient(#a0998f 15%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 71%, #ebe6de 44%); */
       " >
-			<div class="card-body">
+			<div class="card-body" style="padding:28px 10px 0px">
 				<h2 style="color:black;margin-top: -15px;">
 					<b>{{products.name }}</b>
 				</h2>
@@ -158,7 +158,7 @@ export default {
 
     var str1=JSON.stringify(str2);
     
-    const a=str1.replaceAll('src',"style='max-width:57%' src"); 
+    const a=str1.replaceAll('src',"style='max-width:97%' src"); 
     let str=JSON.parse(a)
     this.products=str
     // alert(JSON.stringify(this.$store.state.pitem))

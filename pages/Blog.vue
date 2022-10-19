@@ -4,6 +4,7 @@
    
     <!-- <Tutorial/> -->
     <div>
+      <homeM />
        <blogMain  />
        <!-- <homeServices  /> -->
     </div>
