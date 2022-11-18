@@ -40,7 +40,7 @@
       <!-- Section: Social media -->
       <!-- Section: Form -->
       <section class="">
-        <form action="">
+       
           <!--Grid row-->
           <mdb-row center class="d-flex">
             <!--Grid column-->
@@ -48,24 +48,27 @@
               <p class="pt-2">
                 <strong>Sign up for our newsletter</strong>
               </p>
+              <p class="pt-2" style="color:#fff;text-shadow: 4px 2px 2px #2c0406;">
+                <b>{{emsg}}</b>
+              </p>
             </mdb-col>
           </mdb-row>
             <mdb-row center class="d-flex">
 
             <!--Grid column-->
             <!--Grid column-->
-            <mdb-col md="12" col="12">
+            <mdb-col md="12" col="12" style="margin:auto">
               <!-- Email input -->
               <mdb-input  
               outline 
-                style="color: red;background-color:white"
+              style="box-shadow: rgb(38 3 3) 1px 5px 5px;margin:auto;background-color:#fff;max-width:800px" 
                 type="email"
                 id="form5Example2"
-                label="Email address"
+                label="email"
                 wrapperClass="mb-4"
-                  
-                  textColor="red"
-                  required
+                v-model="mail"
+                textColor="red"
+                required
               />
             </mdb-col>
             <!--Grid column-->
@@ -74,13 +77,13 @@
             <!--Grid column-->
           </mdb-row>
           <mdb-row>
-            <mdb-col md="5" col="12">
+            <mdb-col md="5" col="12" style="margin:auto">
               <!-- Submit button -->
-              <mdb-btn outline="light" class="mb-4"> Subscribe </mdb-btn>
+              <mdb-btn outline="light" class="mb-4" v-on:click="mailChimp" type="submit" > Subscribe </mdb-btn>
             </mdb-col>
           </mdb-row>
           <!--Grid row-->
-        </form>
+       
       </section>
       <!-- Section: Form -->
       <!-- Section: Text -->
@@ -109,17 +112,67 @@
   <!-- Footer -->
 </template>
 <script>
-  import { mdbFooter, mdbContainer, mdbRrow, mdbCol, mdbIcon, mdbBtn,mdbInput } from 'mdbvue';
+
+  import { mdbFooter, mdbContainer, mdbRow, mdbCol, mdbIcon, mdbBtn,mdbInput } from 'mdbvue';
 
   export default {
     components: {
       mdbFooter,
       mdbContainer,
-      mdbRrow,
+      mdbRow,
       mdbCol,
       mdbIcon,
       mdbBtn,
       mdbInput
-    },
+    },  data() {
+    return {
+      mail:"",
+      emsg:""
+    }},
+    methods:{
+      async mailChimp(){
+        if(this.mail==""){
+          this.emsg="Enter your email";
+          return;
+        }
+        // alert("foo")
+        console.log("sending to mailchimp")
+        let mdata={
+          e:this.mail
+        }
+        await this.$api.$post('mailChimp',mdata).then((response) => {
+          console.log("mailChimp: "+JSON.stringify(response))
+          if(response.status==400){
+            this.emsg=response.detail;
+          }else{
+            this.emsg=response.status;
+          }
+      //   if(response.val==2){
+            // this.gImages(response.gurl)
+      //     }
+     
+  }).catch(function (response) {
+            //handle error
+            console.log("error: "+response)
+        });
+  },
+  send(){
+    const axios = require('axios');
+
+// Make a request for a user with a given ID
+axios.post('/user?ID=12345')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+  }
+    }
   };
 </script>

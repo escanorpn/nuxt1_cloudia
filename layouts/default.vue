@@ -37,7 +37,29 @@
        <slot />
       </transition>
     </Nuxt>
-        
+    <!-- <a-button type="primary" @click="showModal">Open Modal</a-button> -->
+<!--     
+    <a-modal v-model="visible" title="Basic Modal" @ok="handleOk">
+      <Footer/>
+      <p>hi</p>
+    </a-modal> -->
+    <a-modal v-model:visible="visible"  @ok="handleOk" style="background-color:red">
+      <Footer/>
+    </a-modal>
+    <div>
+
+    <!-- <mdb-btn color="primary" @click="modal = true">Launch demo modal</mdb-btn> -->
+    <mdb-modal :show="modal" @close="modal = false" >
+      <mdb-modal-header style="background-color:red">
+        <mdb-modal-title>Modal title</mdb-modal-title>
+      </mdb-modal-header>
+      <Footer/>
+      <mdb-modal-footer>
+        <mdb-btn color="secondary" @click.native="modal = false">Close</mdb-btn>
+        <mdb-btn color="primary">Save changes</mdb-btn>
+      </mdb-modal-footer>
+    </mdb-modal>
+  </div>
    <!-- Footer -->
    <div class="" style="background-color:#3b3b3b">
    
@@ -62,7 +84,13 @@
 </template>
 <script>
   import Footer from "./Footer.vue";
-  import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem,mdbIcon } from 'mdbvue';
+  import { Modal } from 'ant-design-vue';
+  import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem,mdbIcon,mdbModal,
+    mdbModalHeader,
+    mdbModalTitle,
+    mdbModalBody,
+    mdbModalFooter,
+    mdbBtn} from 'mdbvue';
   
 import { isMobile } from 'mobile-device-detect';
   // alert(this.mib);
@@ -75,6 +103,10 @@ import { isMobile } from 'mobile-device-detect';
           return {
             cItems:0,
             mib:isMobile,
+            visible:false,
+            modal:false,
+            // showModal,
+            // handleOk,
             // email:this.postEmail,
             msg:""
           }
@@ -86,11 +118,33 @@ import { isMobile } from 'mobile-device-detect';
       mdbNavbarNav,
       mdbNavItem,
       mdbIcon,
-      Footer
+      Footer,
+      mdbModal,
+    mdbModalHeader,
+    mdbModalTitle,
+    mdbModalBody,
+    mdbModalFooter,
+    mdbBtn
       
      
     },
     methods: {
+       showModal () {
+        setTimeout(() => this.visible = true, 3000);
+      // this.visible = true;
+      // Modal.success({
+      //   title: () => 'This is a success message',
+      //   content: () => h('div', {}, [
+      //     h('p', 'some messages...some messages...'),
+      //     h('p', 'some messages...some messages...'),
+      //   ]),
+      // });
+    },
+
+     handleOk (e) {
+      console.log(e);
+      this.visible = false;
+    },
    
       isMobile1() {
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -103,12 +157,24 @@ import { isMobile } from 'mobile-device-detect';
         return isMobile
       }
     },
-      mounted() {
-    // this.add2cart();
-  },
+    mounted() {
+    //   setTimeout(function() {
+    //     this.showModal()
+    // }, 500)
+    //   setTimeout(function() { 
+    //     this.showModal()
+    //   }, 3000);
+      this.showModal()
+  // window.setInterval(() => {
+  //   this.showModal()
+  // }, 3000)
+}
   }
 </script>
 <style>
+.ant-modal-content{
+  background-color: #332d2d;
+}
 .nav-link {
       color: white;
     text-shadow: 1px 1px 2px black;

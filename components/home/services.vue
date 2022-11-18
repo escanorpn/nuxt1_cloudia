@@ -86,7 +86,7 @@ import folio from "./folio.vue"
 import mlist from "./slist.vue"
 
 import item1 from "./item.vue"
-  import { mdbBtn} from 'mdbvue';
+import { mdbBtn} from 'mdbvue';
 export default {
 name: 'hservicePage',
 components: {
@@ -150,8 +150,7 @@ computed: {
   }
 },
 methods:{
-    
-        async fetchImages(){
+    async fetchImages(){
         this.products=[];
           console.log("Fetching Images: ")
         await this.$api.$get('company_limited').then((response) => {
@@ -168,6 +167,49 @@ methods:{
             console.log("error: "+response)
         });
        
+  },
+	async gUrl(){
+        this.products=[];
+        await this.$api.$get('gupdate').then((response) => {
+          console.log("Fetching Url: "+JSON.stringify(response))
+        if(response.val==2){
+			this.gImages(response.gurl)
+          }
+     
+  }).catch(function (response) {
+            //handle error
+            console.log("error: "+response)
+        });
+  },
+gImages(u){
+	var axios = require('axios');
+	var config = {
+  method: 'get',
+  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type&access_token='+u,
+  headers: { 
+    'Cookie': 'csrftoken=9B0w0O5j825r0vQp57iBvB23tyMr4b5b; ig_did=23EA93BD-D0B3-4C7A-8AE5-90E48096FBD2; ig_nrcb=1; mid=YujYzgAEAAHi3navL_r9faq5BzvT'
+  }
+};
+let context=this;
+axios(config)
+.then(function (response) {
+        console.log("Igmages response: "+ JSON.stringify(response));
+	let myData = response.data.data
+		for (var i = myData.length - 1; i >= 0; i--) {
+    
+			if (myData[i].media_type !="IMAGE") { 
+			myData.splice(i, 1);
+			}
+		}
+		if(myData.length>15){
+		myData = myData.slice(0, 12);
+		}
+        console.log(myData)
+		context.igItems = myData
+})
+.catch(function (error) {
+  console.log("gImage: "+error);
+});
   },
   
         async fetchIgmages(){
@@ -200,8 +242,9 @@ methods:{
   },
 },
 mounted() {
- this.fetchIgmages();
- this.fetchImages();
+    this.fetchImages()
+//  this.fetchIgmages();
+ this.gUrl();
 },
 
 

@@ -2,7 +2,8 @@ import {Url,igUrl,igt} from "../store/const"
 export default function ({ $axios, redirect }, inject) {
   const api = $axios.create()
   const ig = $axios.create()
-  const igs="?fields=id,caption,media_url,media_type&access_token="+igt;
+  // const igs="?fields=id,caption,media_url,media_type&access_token="+igt;
+  const igs="?fields=id,caption,media_url,media_type&access_token=";
   api.setBaseURL(Url)
   ig.setBaseURL(igUrl+igs)
     // api.setBaseURL('http://localhost/w/vue1/src/s/s2/public/api/')

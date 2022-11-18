@@ -87,6 +87,8 @@ export default {
       products: [],
       mItemsList: [],
       mItems: [],
+      mdesc:null,
+      mid:0,
       loading: false,
       sending: false,
       dList:false,
@@ -101,30 +103,11 @@ export default {
       // this.$router.push({ path: '/Print', })
       window.print()
     },
-         keymonitor(event) {
-     
-        console.log(event.target.value);
-        if(event.target.value!= ""){
-        this.mSearch(event.target.value);
-        
-        }else{
-           this.mItemsList=[]; 
-           this.dList=false;
-        }
-    },
-      g2r(d){
-      // this.$router.push('/Pitem');
-      
-    this.mItems=d.images
-    this.products=d
-      this.$store.commit('pdata',d)
-      // this.$router.go()
-      //  this.$router.push({ path: '/Ritem', })
-      // alert("foo")
-    },
+           
+    
     async mSearch(search) {
       let mData={
-        s:search
+        id:search
       }
       const context=this;
   this.loading=true;
@@ -141,8 +124,6 @@ export default {
            
            this.dList=true;
         }
-
-          // console.log("products"+JSON.stringify(myData))
      
   }).catch(function (response) {
       context.loading=false;
@@ -150,19 +131,21 @@ export default {
             console.log("error: "+response)
         });
     },
+   
   },
   mounted() {
    
     this.mItems=this.$store.state.pitem.images
     let str2=this.$store.state.pitem
-
+    this.mid=this.$store.state.pitem.id
+    console.log("mid: "+mid)
     var str1=JSON.stringify(str2);
     
     const a=str1.replaceAll('src',"style='max-width:97%' src"); 
     let str=JSON.parse(a)
     this.products=str
     // alert(JSON.stringify(this.$store.state.pitem))
-    console.log('BData: ' +JSON.stringify(this.products));
+    // console.log('BData: ' +JSON.stringify(this.products));
   },
 
 }

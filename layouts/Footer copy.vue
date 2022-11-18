@@ -118,7 +118,7 @@
     //         const mailchimp = new Mailchimp(apiKey);
     //         try{
     //   const response =  mailchimp.request({
-    //     method: 'post',
+    //     method: 'post',mdb
     //     path: `/lists/${audienceId}/members`,
     //     body: {
     //       email_address,
