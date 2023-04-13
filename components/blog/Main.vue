@@ -340,7 +340,7 @@ const chunk = da.slice(i, i + this.chunkSize);
               await this.$api.$get('blog').then((response) => {
                   this.loading=false;
         // console.log("mData: "+ JSON.stringify(mData));
-        // console.log("response_: "+ JSON.stringify(response.data));
+        console.log("response_: "+ JSON.stringify(response.data));
      
         const myData = response.data;
         // this.master=myData;

@@ -88,7 +88,7 @@ export default {
       mItemsList: [],
       mItems: [],
       mdesc:null,
-      mid:0,
+      // mid:0,
       loading: false,
       sending: false,
       dList:false,
@@ -137,8 +137,8 @@ export default {
    
     this.mItems=this.$store.state.pitem.images
     let str2=this.$store.state.pitem
-    this.mid=this.$store.state.pitem.id
-    console.log("mid: "+mid)
+    // this.mid=this.$store.state.pitem.id
+    // console.log("mid: "+mid)r
     var str1=JSON.stringify(str2);
     
     const a=str1.replaceAll('src',"style='max-width:97%' src"); 
